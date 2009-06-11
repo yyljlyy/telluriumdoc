@@ -63,13 +63,13 @@ UI模块是一个复合的Tellurium物件，它是由一些单个Tellurium物件
 
 {{{
 ui.Container(uid: "GoogleSearchModule", clocator: [tag: "td"], group: "true"){
-   InputBox(uid: "Input", clocator: [title: "Google Search"])
+   InputBox(uid: "Input", clocator: [title: "Google Search"]，respond: ["focus", "mouseOver"])
    SubmitButton(uid: "Search", clocator: [name: "btnG", value: "Google Search"])
    SubmitButton(uid: "ImFeelingLucky", clocator: [value: "I'm Feeling Lucky"])
 }
 }}}
 
-UI模块的最外层元素以定要以"ui."开始。
+UI模块的最外层元素以定要以"ui."开始。这里group为“true”表示Tellurium用利用UI元素之间的关系来协助它们在网页DOM中的定位。respond定义了InputBox比
 
 = 创建自己的Tellurium测试项目 =
 
