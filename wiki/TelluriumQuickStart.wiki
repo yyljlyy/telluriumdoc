@@ -284,5 +284,5 @@ TrUMP简单易用，具体的操作这里就不细说了。
  
   * Tellurium项目网址: http://code.google.com/p/aost/
   * Tellurium用户组: http://groups.google.com/group/tellurium-users
-  * 在线幻灯片：[http://www.slideshare.net/John.Jian.Fang/telluriumanewapproachforwebtesting "Tellurium - A New Approach For Web Testing"]
-  * Screencast视频: [http://www.youtube.com/watch?v=DyUPeg-Y-Yg Ten Minutes to Tellurium]
+  * 在线幻灯片："[http://www.slideshare.net/John.Jian.Fang/telluriumanewapproachforwebtesting Tellurium - A New Approach For Web Testing]"
+  * Screencast视频: "[http://www.youtube.com/watch?v=DyUPeg-Y-Yg Ten Minutes to Tellurium]"
