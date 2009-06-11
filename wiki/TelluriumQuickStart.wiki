@@ -1,0 +1,92 @@
+#summary Tellurium快速上手指南.
+#labels Phase-Implementation,Phase-Support
+
+= 简介 =
+
+Tellurium是一个开源的网页测试框架，现阶段还是建立在Selenium之上。 但有很多独特的测试理念。 比之Selenium, 维护性，鲁棒性， 和可复用性都要好。 它支持JUnit和TestNG。Tellurium的测试代码可以用Java, Groovy和纯DSL脚本. Tellurium有自己的Firefox Plugin和Maven archetype. 要创建一个Tellurium测试项目很简单， 用一个Maven命令就行, 比如
+
+{{{
+mvn archetype:create -DgroupId=example -DartifactId=demo -DarchetypeArtifactId=tellurium-junit-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0-SNAPSHOT
+}}}
+
+这个命令创建了Tellurium JUnit 测试项目。 当然， 在这之前，你必须把Tellurium Maven Repository加到你的Maven settings.xml文件中
+
+{{{
+<settings>
+<profiles>
+<profile>
+<activation>
+<activebydefault>true</activebydefault>
+</activation>
+<repositories>
+<repository>
+<id>kungfuters-public-snapshots-repo</id>
+<name>Kungfuters.org Public Snapshot Repository</name>
+<releases>
+<enabled>false</enabled>
+</releases>
+<snapshots>
+<enabled>true</enabled>
+</snapshots>
+<url>http://kungfuters.org/nexus/content/repositories/snapshots</url>
+</repository>
+<repository>
+<id>kungfuters-public-releases-repo</id>
+<name>Kungfuters.org Public Releases Repository</name>
+<releases>
+<enabled>true</enabled>
+</releases>
+<snapshots>
+<enabled>false</enabled>
+</snapshots>
+<url>http://kungfuters.org/nexus/content/repositories/releases</url>
+</repository>
+</repositories>
+</profile>
+</profiles>
+</settings>
+}}}
+
+然后用编辑器如IntelliJ IDEA打开项目用如下部步骤，
+
+{{{
+New Project > Import project from external model > Maven > Project directory > Finish
+}}}
+
+你会发现项目中有以下文件
+{{{
+pom.xml
+src
+src/main
+src/main/groovy
+src/main/resources
+src/test
+src/test/groovy
+src/test/groovy/module
+src/test/groovy/module/GoogleSearchModule.groovy
+src/test/groovy/test
+src/test/groovy/test/GoogleSearchTestCase.java
+src/test/resources
+TelluriumConfig.groovy
+}}}
+
+其中TelluriumConfig.groovy是Tellurium配置文件， 而GoogleSearchModule是示范网页模块文件， 而GoogleSearchTestCase是示范测试文件。
+检查项目的Groovy配置， 确保是1.6.0版本。 然后就可以运行示范测试文件了。
+
+Tellurium的Firefox Plugin(TrUMP)可以用来自动创建网页模块文件， 然后你加入测试逻辑就行了。 TrUMP可以从Tellurium网站下载
+
+http://code.google.com/p/aost/downloads/list
+
+或者从Firefox addons直接下载
+
+https://addons.mozilla.org/en-US/firefox/addon/11035
+
+如果有问题， 可到Tellurium用户组去提问
+
+http://groups.google.com/group/tellurium-users
+
+这个示范的在线版在
+
+http://www.slideshare.net/John.Jian.Fang/ten-minutes-to-tellurium
+
+此外Tellurium网站还有相关的视频下载。 
