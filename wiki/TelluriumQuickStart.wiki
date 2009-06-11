@@ -69,7 +69,72 @@ ui.Container(uid: "GoogleSearchModule", clocator: [tag: "td"], group: "true"){
 }
 }}}
 
-UI模块的最外层元素以定要以"ui."开始。这里group为“true”表示Tellurium用利用UI元素之间的关系来协助它们在网页DOM中的定位。respond定义了InputBox比
+UI模块的最外层元素以定要以"ui."开始。这里group为“true”表示Tellurium用利用UI元素之间的关系来协助它们在网页DOM中的定位。respond属性定义了InputBox需要触发“focus”和“mouseOver”事件，Tellurium会自动触发这些事件的。
+
+=== Tellurium测试案例 ===
+
+Tellurium测试代码可以用Java, Groovy, 或纯DSL脚本来写。无论哪种方法，Tellurium要求你定义独立的UI模块，使之和测试代码分离，以便于维护。UI模块必须继承Tellurium的DslContext class, 一般你还需定义对UI模块的操作方法。例如：
+
+{{{
+class GoogleSearchModule extends DslContext{
+
+    public void defineUi() {
+ui.Container(uid: "google_start_page", clocator: [tag: "td"], group: "true"){
+            InputBox(uid: "searchbox", clocator: [title: "Google Search"])
+            SubmitButton(uid: "googlesearch", clocator: [name: "btnG", value: "Google Search"])
+            SubmitButton(uid: "Imfeelinglucky", clocator: [value: "I'm Feeling Lucky"])
+        }
+   }
+   def doGoogleSearch(String input){
+        keyType "searchbox", input
+        pause 500
+        click "googlesearch"
+        waitForPageToLoad 30000
+    }
+
+    def doImFeelingLucky(String input){
+        type "searchbox", input
+        pause 500
+        click "Imfeelinglucky"
+        waitForPageToLoad 30000
+    }
+}
+}}}
+
+如果你的测试案例用JUnit来写，你需要继承TelluriumJavaTestCase.
+
+{{{
+ublic class GoogleSearchTestCase extends TelluriumJavaTestCase {
+    private static GoogleSearchModule gsm;
+    
+    @BeforeClass
+    public static void initUi() {
+        gsm = new GoogleSearchModule();
+        gsm.defineUi();
+    }
+
+    @Before
+    public void connectToGoogle() {
+
+        connectUrl("http://www.google.com");
+    }
+
+    @Test
+    public void testGoogleSearch() {
+        gsm.doGoogleSearch("tellurium . ( Groovy ) Test");
+    }
+
+    @Test
+    public void testGoogleSearchFeelingLucky() {
+        gsm.doImFeelingLucky("tellurium automated Testing");
+    }
+}
+}}}
+
+TestNG的案例类似，除了你要继承TelluriumTestNGTestCase。如果用Groovy, 你需要继承TelluriumGroovyTestCase.
+
+=== Tellurium配置 ===
+
 
 = 创建自己的Tellurium测试项目 =
 
