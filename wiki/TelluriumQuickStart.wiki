@@ -79,7 +79,7 @@ Tellurium测试代码可以用Java, Groovy, 或纯DSL脚本来写。无论哪种
 class GoogleSearchModule extends DslContext{
 
     public void defineUi() {
-ui.Container(uid: "google_start_page", clocator: [tag: "td"], group: "true"){
+         ui.Container(uid: "google_start_page", clocator: [tag: "td"], group: "true"){
             InputBox(uid: "searchbox", clocator: [title: "Google Search"])
             SubmitButton(uid: "googlesearch", clocator: [name: "btnG", value: "Google Search"])
             SubmitButton(uid: "Imfeelinglucky", clocator: [value: "I'm Feeling Lucky"])
@@ -104,7 +104,7 @@ ui.Container(uid: "google_start_page", clocator: [tag: "td"], group: "true"){
 如果你的测试案例用JUnit来写，你需要继承TelluriumJavaTestCase.
 
 {{{
-ublic class GoogleSearchTestCase extends TelluriumJavaTestCase {
+public class GoogleSearchTestCase extends TelluriumJavaTestCase {
     private static GoogleSearchModule gsm;
     
     @BeforeClass
