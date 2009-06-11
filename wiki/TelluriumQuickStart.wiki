@@ -44,7 +44,7 @@ Tellurium定义了一些常用的物件，如Button, Table, Form等。
 
 值得注意的是Tellurium物件大多为抽象物件，比如Container就可以实用于不同的HTML标签。每个Tellurium物件都有一个uid，即它的别名。
 
-== Locator ==
+=== Locator ===
 
 Locator是用来定位一个元素在网页DOM中的位置，Tellurium支持两种Locator, 一种叫_Base Locator_, 用“locator”标识，它是一个相对的XPath. 如：
 {{{
@@ -225,6 +225,9 @@ public class GoogleSearchModuleTestCase extends TelluriumJavaTestCase
 
 == 运行Tellurium的条件 ==
 
+由于Tellurium的UI模块必须是一个Groovy class, 你需要Groovy才能运行Tellurium. 请从[http://groovy.codehaus.org/Download Groovy官方网页]下载Groovy，当然，你也可以用Maven下载。
+
+在IDE中运行Tellurium, 你需要安装Groovy插件。Eclipse的Groovy插件在: http://dist.codehaus.org/groovy/distributions/update/. 新版的Netbeans和IntelliJ本身就带有Groovy插件。
 
 = 创建自己的Tellurium测试项目 =
 
@@ -275,14 +278,11 @@ http://code.google.com/p/aost/downloads/list
 
 https://addons.mozilla.org/en-US/firefox/addon/11035
 
-如果有问题， 可到Tellurium用户组去提问
-
-http://groups.google.com/group/tellurium-users
-
-这个示范的在线版在
-
-http://www.slideshare.net/John.Jian.Fang/ten-minutes-to-tellurium
-
-此外Tellurium网站还有相关的视频下载。 
+TrUMP简单易用，具体的操作这里就不细说了。 
 
 = 相关资源 =
+ 
+  * Tellurium项目网址: http://code.google.com/p/aost/
+  * Tellurium用户组: http://groups.google.com/group/tellurium-users
+  * 在线幻灯片：[http://www.slideshare.net/John.Jian.Fang/telluriumanewapproachforwebtesting "Tellurium - A New Approach For Web Testing"]
+  * Screencast视频: [http://www.youtube.com/watch?v=DyUPeg-Y-Yg Ten Minutes to Tellurium]
