@@ -17,6 +17,60 @@ Tellurium由以下子项目构成：
 
 http://tellurium-users.googlegroups.com/web/TelluriumProjects.png?gsc=8WCcfRYAAABueqEHekK8LxR3X1leEByKg-kXU5InE09W2o0GCSVgCQ
 
+== 一点Tellurium概念 ==
+
+虽然Tellurium脱胎于Selenium,但两者在概念上有很大的不同。Selenium主要是用记录和重播(Record and Replay)模式，而Tellurium要求你首先定义待测的UI模块。下面列出Tellurium的一些主要概念：
+
+=== Tellurium物件 ===
+
+Tellurium定义了一些常用的物件，如Button, Table, Form等。
+
+|| *Tellurium物件* || *缺省属性* ||
+|| Button || tag: "input" ||
+|| Container || ||
+|| CheckBox || tag: "input", type: "checkbox" ||
+|| Div || tag: "div" ||
+|| Form || tag: "form" ||
+|| Image || tag: "img" ||
+|| InputBox || tag: "input" ||
+|| RadioButton || tag: "input", type: "radio" ||
+|| Selector || tag: "select" ||
+|| Span || tag: "span" ||
+|| SubmitButton || tag: "input", type: "submit" ||
+|| Table || tag: "table" ||
+|| UrlLink || tag: "a" ||
+|| StandardTable || tag: "table" ||
+
+值得注意的是Tellurium物件大多为抽象物件，比如Container就可以实用于不同的HTML标签。每个Tellurium物件都有一个uid，即它的别名。
+
+== Locator ==
+
+Locator是用来定位一个元素在网页DOM中的位置，Tellurium支持两种Locator, 一种叫_Base Locator_, 用“locator”标识，它是一个相对的XPath. 如：
+{{{
+InputBox(uid: "SearchBox", locator: "//input[@title='Google Search']")
+}}}
+
+另一个是_Composite Locator_, 用“clocator”来标识，它是由一组属性构成，如
+{{{
+InputBox(uid: "SearchBox", clocator: [title: "Google Search"])
+}}}
+
+_Composite Locator_是Tellurium的缺省Locator, 它容易写，表叙性好，方便动态生成Runtime Locator.
+
+=== UI模块 ===
+ 
+UI模块是一个复合的Tellurium物件，它是由一些单个Tellurium物件嵌套构成。一个UI模块往往代表DOM的一个子树。比如Google首页搜索模块就可以表叙为
+
+{{{
+ui.Container(uid: "GoogleSearchModule", clocator: [tag: "td"], group: "true"){
+   InputBox(uid: "Input", clocator: [title: "Google Search"])
+   SubmitButton(uid: "Search", clocator: [name: "btnG", value: "Google Search"])
+   SubmitButton(uid: "ImFeelingLucky", clocator: [value: "I'm Feeling Lucky"])
+}
+}}}
+
+UI模块的最外层元素以定要以"ui."开始。
+
 = 创建自己的Tellurium测试项目 =
 
 Tellurium有自己的Firefox Plugin和Maven archetype. 要创建一个Tellurium测试项目很简单， 用一个Maven命令就行, 比如
