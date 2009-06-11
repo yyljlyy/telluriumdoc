@@ -3,7 +3,23 @@
 
 = 简介 =
 
-Tellurium是一个开源的网页测试框架，现阶段还是建立在Selenium之上。 但有很多独特的测试理念。 比之Selenium, 维护性，鲁棒性， 和可复用性都要好。 它支持JUnit和TestNG。Tellurium的测试代码可以用Java, Groovy和纯DSL脚本. Tellurium有自己的Firefox Plugin和Maven archetype. 要创建一个Tellurium测试项目很简单， 用一个Maven命令就行, 比如
+Tellurium是一个开源的网页测试框架，现阶段还是建立在Selenium之上。 但有很多独特的测试理念。 比之Selenium, 维护性，鲁棒性， 和可复用性都要好。 它支持JUnit和TestNG。Tellurium的测试代码可以用Java, Groovy和纯DSL脚本来写. 
+
+== Tellurium子项目 ==
+
+Tellurium由以下子项目构成：
+  * Tellurium Core: 处理DSL, 自动生成Runtime Locator，和测试案例的支持。
+  * Tellurium Engine: 是Tellurium的底层测试驱动模块
+  * Tellurium Widget: 是Tellurium的扩展，可以定义Javascript库, 如Dojo和ExtJS,的Widget，以便重用。
+  * Tellurium UI Module Plugin (TrUMP): 是个Firefox插件，能够让用户在待测网页上选择所需的UI元素，然后自动生成Tellurium UI模块。
+  * Tellurium Reference Project: 是Tellurium的参考项目，测试代码是为Tellurium项目的网页而写的。主要向用户展示如何定义自己的Tellurium物件(Object), 如何写Tellurium测试代码，数据驱动代码，和纯DSL脚本。参考项目有两个，分别为JUnit项目和TestNG项目。
+  * Tellurium Maven Archetypes: 方便用户创建自己的Tellurium测试项目。有两个Archetype,为JUnit项目和TestNG项目而设。
+
+http://tellurium-users.googlegroups.com/web/TelluriumProjects.png?gsc=8WCcfRYAAABueqEHekK8LxR3X1leEByKg-kXU5InE09W2o0GCSVgCQ
+
+= 创建自己的Tellurium测试项目 =
+
+Tellurium有自己的Firefox Plugin和Maven archetype. 要创建一个Tellurium测试项目很简单， 用一个Maven命令就行, 比如
 
 {{{
 mvn archetype:create -DgroupId=example -DartifactId=demo -DarchetypeArtifactId=tellurium-junit-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0-SNAPSHOT
