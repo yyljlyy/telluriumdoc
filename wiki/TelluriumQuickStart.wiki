@@ -260,7 +260,11 @@ src/test/resources
 TelluriumConfig.groovy
 }}}
 
-其中TelluriumConfig.groovy是Tellurium配置文件， 而GoogleSearchModule是示范网页模块文件， 而GoogleSearchTestCase是示范测试文件。检查项目的Groovy配置，确保是1.6.0版本。 然后就可以运行示范测试文件了。
+其中TelluriumConfig.groovy是Tellurium配置文件， 而GoogleSearchModule是示范网页模块文件， 而GoogleSearchTestCase是示范测试文件。检查项目的Groovy配置，确保是1.6.0版本。 然后就可以用以下Maven命令来运行示范测试文件了，
+
+{{{
+mvn test
+}}}
 
 如果你想创建TestNG项目，可以用以下Maven命令：
 
@@ -279,6 +283,8 @@ http://code.google.com/p/aost/downloads/list
 https://addons.mozilla.org/en-US/firefox/addon/11035
 
 TrUMP简单易用，具体的操作这里就不细说了。 
+
+http://tellurium-users.googlegroups.com/web/TrUMPRecordDownloadPage.png?gda=OlvnAU0AAACXZPxEX7Ki-M5C2JpeBoXX_AfRGjKOg8bfAG7WWa1zzr3MhpfIdLRuVAwbLjuTZtSqonpmmrv0I-p7nCVZQmP65Tb_vjspK02CR95VRrtmeQ&gsc=r5ESUAsAAAB_6XgBAY-OTO2KhvY2ZJUe
 
 = 相关资源 =
  
