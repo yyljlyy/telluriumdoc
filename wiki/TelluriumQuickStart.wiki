@@ -1,5 +1,6 @@
 #summary Tellurium快速上手指南.
 #labels Phase-Implementation,Phase-Support
+<wiki:toc max_depth="5" />
 
 = 简介 =
 
@@ -222,53 +223,18 @@ public class GoogleSearchModuleTestCase extends TelluriumJavaTestCase
 }
 }}}
 
+== 运行Tellurium的条件 ==
+
+
 = 创建自己的Tellurium测试项目 =
 
-Tellurium有自己的Firefox Plugin和Maven archetype. 要创建一个Tellurium测试项目很简单， 用一个Maven命令就行, 比如
+有三种方法创建自己的Tellurium测试项目。一是从[http://code.google.com/p/aost/downloads/list Tellurium下载网页]下载文件手工创建，这样比较费事。或者下载Tellurium的参考项目，用它作为你的模板项目。更方便的方法是用Tellurium的Maven archetype来创建，非常简单，一个Maven命令就完事, 比如：
 
 {{{
-mvn archetype:create -DgroupId=example -DartifactId=demo -DarchetypeArtifactId=tellurium-junit-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0-SNAPSHOT
+mvn archetype:create -DgroupId=example -DartifactId=demo -DarchetypeArtifactId=tellurium-junit-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0-SNAPSHOT  -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/snapshots
 }}}
 
-这个命令创建了Tellurium JUnit 测试项目。 当然， 在这之前，你必须把Tellurium Maven Repository加到你的Maven settings.xml文件中
-
-{{{
-<settings>
-<profiles>
-<profile>
-<activation>
-<activebydefault>true</activebydefault>
-</activation>
-<repositories>
-<repository>
-<id>kungfuters-public-snapshots-repo</id>
-<name>Kungfuters.org Public Snapshot Repository</name>
-<releases>
-<enabled>false</enabled>
-</releases>
-<snapshots>
-<enabled>true</enabled>
-</snapshots>
-<url>http://kungfuters.org/nexus/content/repositories/snapshots</url>
-</repository>
-<repository>
-<id>kungfuters-public-releases-repo</id>
-<name>Kungfuters.org Public Releases Repository</name>
-<releases>
-<enabled>true</enabled>
-</releases>
-<snapshots>
-<enabled>false</enabled>
-</snapshots>
-<url>http://kungfuters.org/nexus/content/repositories/releases</url>
-</repository>
-</repositories>
-</profile>
-</profiles>
-</settings>
-}}}
-
-然后用编辑器如IntelliJ IDEA打开项目用如下部步骤，
+这个命令创建了Tellurium JUnit 测试项目。然后用编辑器如IntelliJ IDEA打开项目用如下部步骤，
 
 {{{
 New Project > Import project from external model > Maven > Project directory > Finish
@@ -291,8 +257,15 @@ src/test/resources
 TelluriumConfig.groovy
 }}}
 
-其中TelluriumConfig.groovy是Tellurium配置文件， 而GoogleSearchModule是示范网页模块文件， 而GoogleSearchTestCase是示范测试文件。
-检查项目的Groovy配置， 确保是1.6.0版本。 然后就可以运行示范测试文件了。
+其中TelluriumConfig.groovy是Tellurium配置文件， 而GoogleSearchModule是示范网页模块文件， 而GoogleSearchTestCase是示范测试文件。检查项目的Groovy配置，确保是1.6.0版本。 然后就可以运行示范测试文件了。
+
+如果你想创建TestNG项目，可以用以下Maven命令：
+
+{{{
+mvn archetype:create -DgroupId=your_group_id -DartifactId=your_artifact_id -DarchetypeArtifactId=tellurium-testng-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0-SNAPSHOT -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/snapshots
+}}}
+
+= 创建自己的UI模块 =
 
 Tellurium的Firefox Plugin(TrUMP)可以用来自动创建网页模块文件， 然后你加入测试逻辑就行了。 TrUMP可以从Tellurium网站下载
 
@@ -311,3 +284,5 @@ http://groups.google.com/group/tellurium-users
 http://www.slideshare.net/John.Jian.Fang/ten-minutes-to-tellurium
 
 此外Tellurium网站还有相关的视频下载。 
+
+= 相关资源 =
