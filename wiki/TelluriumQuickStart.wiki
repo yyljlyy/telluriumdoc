@@ -78,13 +78,14 @@ Tellurium测试代码可以用Java, Groovy, 或纯DSL脚本来写。无论哪种
 {{{
 class GoogleSearchModule extends DslContext{
 
-    public void defineUi() {
+   public void defineUi() {
          ui.Container(uid: "google_start_page", clocator: [tag: "td"], group: "true"){
             InputBox(uid: "searchbox", clocator: [title: "Google Search"])
             SubmitButton(uid: "googlesearch", clocator: [name: "btnG", value: "Google Search"])
             SubmitButton(uid: "Imfeelinglucky", clocator: [value: "I'm Feeling Lucky"])
         }
    }
+
    def doGoogleSearch(String input){
         keyType "searchbox", input
         pause 500
@@ -135,6 +136,91 @@ TestNG的案例类似，除了你要继承TelluriumTestNGTestCase。如果用Gro
 
 === Tellurium配置 ===
 
+Tellurium用一个配置文件TelluriumConfig.groovy来配置系统。它包括对Selenium服务器和Tellurium框架本身的配置，如：
+
+{{{
+tellurium{
+    //embedded selenium server configuration
+    embeddedserver {
+        //port number
+        port = "4445"
+        //whether to use multiple windows
+        useMultiWindows = false
+        runInternally = true
+        profile = ""
+    }
+    //event handler
+    eventhandler{
+        //whether we should check if the UI element is presented
+        checkElement = true
+        //wether we add additional events like "mouse over"
+        extraEvent = true
+    }
+    //data accessor
+    accessor{
+        //whether we should check if the UI element is presented
+        checkElement = false
+    }
+    connector{
+        //selenium server host
+        //please change the host if you run the Selenium server remotely
+        serverHost = "localhost"
+        //server port number the client needs to connect
+        port = "4445"
+        //base URL
+        baseUrl = "http://localhost:8080"
+        //Browser setting, valid options are
+        //  *firefox [absolute path]
+        //  *iexplore [absolute path]
+        //  *chrome
+        //   *iehta
+
+        browser = "*chrome"
+    }
+    datadriven{
+        dataprovider{
+            reader = "PipeFileReader"
+        }
+    }
+    test{
+        result{
+            reporter = "XMLResultReporter"
+            output = "Console"
+            filename = "TestResult.output"
+        }
+        exception{
+            captureScreenshot = true
+            filenamePattern = "Screenshot?.png"
+        }
+    }
+    uiobject{
+        builder{
+            //example:
+           SelectMenu="org.tellurium.builder.SelectMenuBuilder"
+        }
+    }
+    widget{
+        module{
+            //define your widget modules here, for example Dojo or ExtJs
+            included=""
+        }
+    }
+}
+}}}
+
+此外，Tellurium还提供了方法让用户来覆盖Tellurium中的配置，
+
+{{{
+public class GoogleSearchModuleTestCase extends TelluriumJavaTestCase
+{
+   static{
+       setCustomConfig(true, 5555, "*chrome", true, null);
+   }
+
+...
+
+}
+}}}
 
 = 创建自己的Tellurium测试项目 =
 
