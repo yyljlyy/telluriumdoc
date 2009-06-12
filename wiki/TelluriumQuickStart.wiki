@@ -231,6 +231,8 @@ public class GoogleSearchModuleTestCase extends TelluriumJavaTestCase
 
 = 创建自己的Tellurium测试项目 =
 
+http://tellurium-users.googlegroups.com/web/HowToUseTellurium.png?gda=E2fneEcAAACXZPxEX7Ki-M5C2JpeBoXXwOvr7XA0t7SnOHKVzf4DhFd6vDxrTQI8X2xdNkWs9mIVeY4b49xGcMK802iZZ8SFeV4duv6pDMGhhhZdjQlNAw&gsc=YyVqmwsAAABmHtz3tZj6NRBcOVGYgXTk
+
 有三种方法创建自己的Tellurium测试项目。一是从[http://code.google.com/p/aost/downloads/list Tellurium下载网页]下载文件手工创建，这样比较费事。或者下载Tellurium的参考项目，用它作为你的模板项目。更方便的方法是用Tellurium的Maven archetype来创建，非常简单，一个Maven命令就完事, 比如：
 
 {{{
