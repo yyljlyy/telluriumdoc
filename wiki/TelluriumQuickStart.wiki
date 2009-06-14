@@ -26,21 +26,29 @@ http://tellurium-users.googlegroups.com/web/TelluriumProjects.png?gsc=8WCcfRYAAA
 
 Tellurium定义了一些常用的物件，如Button, Table, Form等。
 
-|| *Tellurium物件* || *缺省属性* ||
-|| Button || tag: "input" ||
-|| Container || ||
-|| CheckBox || tag: "input", type: "checkbox" ||
-|| Div || tag: "div" ||
-|| Form || tag: "form" ||
-|| Image || tag: "img" ||
-|| InputBox || tag: "input" ||
-|| RadioButton || tag: "input", type: "radio" ||
-|| Selector || tag: "select" ||
-|| Span || tag: "span" ||
-|| SubmitButton || tag: "input", type: "submit" ||
-|| Table || tag: "table" ||
-|| UrlLink || tag: "a" ||
-|| StandardTable || tag: "table" ||
+Tellurium物件至少包含以下属性：
+
+  * uid: 物件的引用名
+  * namespace： 用于XHTML，对HTML它总是null
+  * locator: 用于定位物件相对应的UI元素在网页DOM中的位置。它会是XPath或由一系列的属性构成，如HTML tag, type, value等等。 下节会更详细介绍。
+
+|| *Tellurium物件* || *Locator缺省属性* || *额外属性* ||
+|| Button || tag: "input" || ||
+|| Container || || group ||
+|| CheckBox || tag: "input", type: "checkbox" ||  ||
+|| Div || tag: "div" ||  ||
+|| Form || tag: "form" || group || 
+|| Image || tag: "img" || ||
+|| InputBox || tag: "input" ||  ||
+|| RadioButton || tag: "input", type: "radio" ||  ||
+|| Selector || tag: "select" ||  ||
+|| Span || tag: "span" ||  ||
+|| SubmitButton || tag: "input", type: "submit" ||  ||
+|| Table || tag: "table" || group, header ||
+|| UrlLink || tag: "a" ||  ||
+|| StandardTable || tag: "table" || group, header, footer ||
+|| Frame ||  || group, id, name, title ||
+|| Window ||  || group, id, name, title ||
 
 值得注意的是Tellurium物件大多为抽象物件，比如Container就可以实用于不同的HTML标签。每个Tellurium物件都有一个uid，即它的别名。
 
