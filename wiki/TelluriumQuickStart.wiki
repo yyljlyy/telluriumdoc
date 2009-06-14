@@ -55,17 +55,17 @@ Tellurium物件至少包含以下属性：
 
 === Locator ===
 
-Locator是用来定位一个元素在网页DOM中的位置，Tellurium支持两种Locator, 一种叫_Base Locator_, 用“locator”标识，它是一个相对的XPath. 如：
+Locator是用来定位一个元素在网页DOM中的位置，Tellurium支持两种Locator, 一种叫 _Base Locator_ , 用“locator”标识，它是一个相对的XPath. 如：
 {{{
 InputBox(uid: "SearchBox", locator: "//input[@title='Google Search']")
 }}}
 
-另一个是_Composite Locator_, 用“clocator”来标识，它是由一组属性构成，如
+另一个是 _Composite Locator_ , 用“clocator”来标识，它是由一组属性构成，如
 {{{
 InputBox(uid: "SearchBox", clocator: [title: "Google Search"])
 }}}
 
-_Composite Locator_是Tellurium的缺省Locator, 它容易写，表叙性好，方便动态生成Runtime Locator.
+_Composite Locator_ 是Tellurium的缺省Locator, 它容易写，表叙性好，方便动态生成Runtime Locator.
 
 === UI模块 ===
  
