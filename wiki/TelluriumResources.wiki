@@ -10,6 +10,10 @@
   * [http://notetodogself.blogspot.com/2009/06/tellurium-better-functional-test.html Tellurium: A Better Functional Test by Mikhail Koryak]
   * [http://startupmusings.blogspot.com/2009/06/experience-with-web-testing-frameworks.html Experience with Web Testing Frameworks by Harihara Vinayakaram]
 
+== 采访 ==
+
+  * 张凯峰代表InfoQ China对Tellurium创始人方剑博士的采访: [http://www.infoq.com/cn/articles/tellurium-testing-framework 开源自动测试框架Tellurium]
+
 == 语言类 ==
 
   * [http://groovy.codehaus.org/ Groovy]
