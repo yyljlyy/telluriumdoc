@@ -1,0 +1,48 @@
+#summary Tellurium相关资源.
+#labels Phase-Implementation,Phase-Support
+
+<wiki:toc max_depth="5" />
+
+== 博客 ==
+
+  * [http://notetodogself.blogspot.com/2009/02/functional-testing-with-tellurium.html Fuctional Testing with Tellurium by Mikhail Koryak]
+  * [http://epyramid.wordpress.com/2009/06/02/tellurium-automation-process/ Tellurium and test automation process by Haroon Rasheed]
+  * [http://notetodogself.blogspot.com/2009/06/tellurium-better-functional-test.html Tellurium: A Better Functional Test by Mikhail Koryak]
+
+== 语言类 ==
+
+  * [http://groovy.codehaus.org/ Groovy]
+  * [http://www.w3.org/TR/xpath XPath]
+  * [http://jquery.com/ JQuery]
+  * [http://www.dojotoolkit.org/ Dojo]
+  * [http://extjs.com/products/extjs/ Ext JS]
+
+== Web测试类 ==
+
+  * [http://code.google.com/p/aost Tellurium网址]
+  * [http://groups.google.com/group/tellurium-users Tellurium用户组]
+  * [http://seleniumhq.org/ Selenium网址]
+  * [http://clearspace.openqa.org/community/selenium Selenium社区]
+  * [http://webtest.canoo.com Canoo WebTest网址]
+  * [http://twill.idyll.org/ Twill网址]
+  * [http://www.junit.org/ JUnit网址]
+  * [http://testng.org/ TestNG网址]
+  * [http://htmlunit.sourceforge.net HtmlUnit网址]
+
+== IDE类 ==
+
+  * [http://www.jetbrains.com/idea/ IntelliJ]
+  * [http://www.netbeans.org/ NetBeans]
+  * [http://www.eclipse.org/ Eclipse]
+
+== 工具类 ==
+
+  * [http://ant.apache.org/ Ant]
+  * [http://maven.apache.org/ Maven]
+
+== 演示类 ==
+
+  * [http://code.google.com/p/aost/downloads/list Tellurium演示] (在线版 [http://video.google.com/videoplay?docid=-7547683963743870970 Part I] [http://video.google.com/videoplay?docid=2145192284694104042 Part II])
+  * [http://www.slideshare.net/John.Jian.Fang/telluriumanewapproachforwebtesting 在线幻灯片: Tellurium - A New Approach For Web Testing]
+  * [http://www.slideshare.net/John.Jian.Fang/ten-minutes-to-tellurium 在线幻灯片: 10 Minutes to Tellurium] 
+  * [http://aost.googlecode.com/files/TenMinutesToTellurium.ogg 演示Screencast: 10 Minutes to Tellurium] ([http://www.youtube.com/watch?v=DyUPeg-Y-Yg  在线版])
