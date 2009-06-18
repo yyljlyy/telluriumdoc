@@ -142,13 +142,13 @@ mvn test
 
 这里是一个［http://code.google.com/p/aost/wiki/TelluriumTestProjectMavenSamplePom 示范的POM文件] 以供你参考.
 
-对Ant用户，你需要从[http://code.google.com/p/aost/downloads/list Tellurium项目下载页]来下载[http://code.google.com/p/aost/downloads/list Tellurium core 0.6.0 jar], [http://code.google.com/p/aost/downloads/list Tellurium相关文件], 和 [http://code.google.com/p/aost/wiki/TelluriumSampleConfigurationFile Tellurium配置文件]. 你要把Tellurium相关文件解压到项目的/lib目录下，并把Tellurium core 0.6.0 jar放到同一路径下. 并将Tellurium配置文件命名为TelluriumConfig.groovy，然后放到项目根目录下. 
+对Ant用户，你需要从[http://code.google.com/p/aost/downloads/list Tellurium项目下载页]来下载[http://aost.googlecode.com/files/tellurium-core-0.6.0.jar Tellurium core 0.6.0 jar], [http://aost.googlecode.com/files/tellurium-0.6.0-dependencies.zip Tellurium相关文件], 和 [http://code.google.com/p/aost/wiki/TelluriumSampleConfigurationFile Tellurium配置文件]. 你要把Tellurium相关文件解压到项目的/lib目录下，并把Tellurium core 0.6.0 jar放到同一路径下. 并将Tellurium配置文件命名为TelluriumConfig.groovy，然后放到项目根目录下. 
 
 这里是[http://code.google.com/p/aost/wiki/TelluriumSampleAntBuildScript 示范的Ant脚本]以供你参考。
 
 === Tellurium参考项目 ===
 
-如果你刚接触Tellurium, [http://code.google.com/p/aost/wiki/ReferenceProjectGuide Tellurium参考项目]是你的好的学习起点。Tellurium参考项目包括[http://code.google.com/p/aost/downloads/list  tellurium-junit-java]和[http://code.google.com/p/aost/downloads/list tellurium-testng-java], 你需要从[http://code.google.com/p/aost/downloads/list Tellurium项目下载页]来下载它们。
+如果你刚接触Tellurium, [http://code.google.com/p/aost/wiki/ReferenceProjectGuide Tellurium参考项目]是你的好的学习起点。Tellurium参考项目包括[http://aost.googlecode.com/files/reference-junit.0.6.0.tar.gz tellurium-junit-java]和[http://aost.googlecode.com/files/reference-testng.0.6.0.tar.gz tellurium-testng-java], 你需要从[http://code.google.com/p/aost/downloads/list Tellurium项目下载页]来下载它们。
 
 这两个项目基本相同，唯一的不同是前者用JUnit 4而后者用TestNG. 
 
