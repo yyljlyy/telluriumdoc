@@ -146,26 +146,24 @@ mvn test
 
 这里是[http://code.google.com/p/aost/wiki/TelluriumSampleAntBuildScript 示范的Ant脚本]以供你参考。
 
-=== Tellurium Reference Projects ===
+=== Tellurium参考项目 ===
 
-If you are new to Tellurium, [http://code.google.com/p/aost/wiki/ReferenceProjectGuide Tellurium reference projects] could be your good starting point. There are two reference projects, i.e., [http://code.google.com/p/aost/downloads/list  tellurium-junit-java] and [[http://code.google.com/p/aost/downloads/list tellurium-testng-java], where can be downloaded from [http://code.google.com/p/aost/downloads/list Tellurium project download page].
+如果你刚接触Tellurium, [http://code.google.com/p/aost/wiki/ReferenceProjectGuide Tellurium参考项目]是你的好的学习起点。Tellurium参考项目包括[http://code.google.com/p/aost/downloads/list  tellurium-junit-java]和[http://code.google.com/p/aost/downloads/list tellurium-testng-java], 你需要从[http://code.google.com/p/aost/downloads/list Tellurium项目下载页]来下载它们。
 
-Basically, the two sub-projects are the same and the only difference is that tellurium-junit-java uses JUnit 4 and tellurium-testng-java uses TestNG. 
+这两个项目基本相同，唯一的不同是前者用JUnit 4而后者用TestNG. 
 
-The reference projects illustrate the following usages of Tellurium:
+Tellurium参考项目相你展示了Tellurium的以下用途：
 
-  * How to create your own Tellurium testing project using tellurium jar files.
-  * How to create your own UI Objects and wire them into Tellurium core
-  * How to create UI module files in Groovy
-  * How to create JUnit tellurium testing files in Java
-  * How to create and run DSL scripts
-  * How to create Tellurium Data Driven tests
-  * How to configure Tellurium with the configuration file TelluriumConfig.groovy
-  * Ant build script
-  * Maven POM
+  * 如何创建一个Tellurium项目
+  * 如何定义自己的Tellurium物件
+  * 如何定义UI module
+  * 如何用JUnit或TestNG来写Tellurium测试代码
+  * 如何创建DSL脚本
+  * 如何创建Tellurium数据驱动测试
+  * 如何配置Tellurium项目
+  * Ant脚本
+  * Maven POM文件
 
-=== Feedback ===
+=== 反馈 ===
 
-Please report any problems back to Tellurium User Group at
-
-http://groups.google.com/group/tellurium-users
+如果你有任何问题或建议，请发到［http://groups.google.com/group/tellurium-users Tellurium用户组］。
