@@ -17,7 +17,7 @@ Tellurium 0.6.0 包括以下模块:
 
 === 新特性 ===
 
-Tellurium 0.6.0 是一个具有很多新特性的一个版本。其中最大的更新包括增加对jQuery selector的支持，jQuery Selector缓存, Selenium Grid支持, 用于批量数据处理的新的API和无数其他的更新. 具体内容青参阅[http://code.google.com/p/aost/wiki/WhatsNewInTellurium_0_6_0 Whats New in Tellurium 0.6.0].
+Tellurium 0.6.0 是一个具有很多新特性的一个版本。其中最大的更新包括增加对jQuery selector的支持，jQuery Selector缓存, Selenium Grid支持, 用于批量数据处理的新的API和无数其他的更新. 具体内容青参阅[http://code.google.com/p/aost/wiki/WhatsNewInTellurium_0_6_0 "Whats New in Tellurium 0.6.0"].
 
 同时，我们改变了selenium-core 1.0.1，在其中加入了我们自己的Engine代码来支持jQuery selector和新的API. 
 
