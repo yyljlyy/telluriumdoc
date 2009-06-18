@@ -1,5 +1,5 @@
 #summary Tellurium用户指南.
-#labels Phase-Design,Phase-Support
+#labels Phase-Design,Phase-Support,Featured
 = Tellurium用户指南 =
 
 == Tellurium APIs ==
