@@ -1,5 +1,5 @@
 #summary Tellurium快速上手指南.
-#labels Phase-Implementation,Phase-Support
+#labels Phase-Implementation,Phase-Support,Featured
 <wiki:toc max_depth="5" />
 
 = 简介 =
