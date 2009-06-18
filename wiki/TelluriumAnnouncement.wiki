@@ -166,4 +166,4 @@ Tellurium参考项目相你展示了Tellurium的以下用途：
 
 === 反馈 ===
 
-如果你有任何问题或建议，请发到［http://groups.google.com/group/tellurium-users Tellurium用户组］。
+如果你有任何问题或建议，请发到[http://groups.google.com/group/tellurium-users Tellurium用户组]。
