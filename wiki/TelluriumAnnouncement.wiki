@@ -1,0 +1,171 @@
+#summary Tellurium公告栏.
+#labels Phase-Support
+<wiki:toc max_depth="2" />
+
+= Tellurium公告 =
+
+== Tellurium 0.6.0 发布了 ==
+
+Tellurium 0.6.0 包括以下模块:
+
+  * Tellurium Core 0.6.0
+  * Tellurium JUnit 参考项目 0.6.0
+  * Tellurium TestNG 参考项目 0.6.0
+  * Tellurium JUnit Maven Archetype 1.0
+  * Tellurium TestNG Maven Archetype 1.0
+  * Customized Selenium Server 1.0.1-te
+
+=== 新特性 ===
+
+Tellurium 0.6.0 是一个具有很多新特性的一个版本。其中最大的更新包括增加对jQuery selector的支持，jQuery Selector缓存, Selenium Grid支持, 用于批量数据处理的新的API和无数其他的更新. 具体内容青参阅[http://code.google.com/p/aost/wiki/WhatsNewInTellurium_0_6_0 Whats New in Tellurium 0.6.0].
+
+We customized selenium-core 1.0.1 and embedded our Engine code into it. The Engine mainly provides jQuery selector support, jQuery selector caching, and a set of new APIs. 
+
+=== How to Obtain Tellurium 0.6.0 ===
+
+For a Maven user, the best way to obtain Tellurium 0.6.0 is to use Tellurium Maven archetypes, which include tellurium-junit-archetype and tellurium-testng-archetype for Tellurium JUnit test project and Tellurium TestNG test project, respectively.
+
+To create a Tellurium JUnit test project, the the following Maven command,
+
+{{{
+mvn archetype:create -DgroupId=your_group_id -DartifactId=your_artifact_id -DarchetypeArtifactId=tellurium-junit-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0 -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/releases
+}}} 
+
+and for a Tellurium TestNG project, use
+
+{{{
+mvn archetype:create -DgroupId=your_group_id -DartifactId=your_artifact_id -DarchetypeArtifactId=tellurium-testng-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0 -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/releases
+}}} 
+
+The skeleton project created by the Tellurium Maven archetype type includes a sample test case, GoogleSearchTestCase. You can simply go to the project directory and run the following command to test it,
+
+{{{
+mvn test
+}}}
+
+If you have already had a test project and want to include Tellurium 0.6.0 in, please add the following section to your POM file,
+
+{{{
+   <repositories>
+        <repository>
+            <id>caja</id>
+            <url>http://google-caja.googlecode.com/svn/maven</url>
+        </repository>
+        <repository>
+            <id>kungfuters-public-releases-repo</id>
+            <name>Kungfuters.org Public Releases Repository</name>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>http://kungfuters.org/nexus/content/repositories/releases</url>
+        </repository>
+        <repository>
+            <id>kungfuters-thirdparty-releases-repo</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>http://kungfuters.org/nexus/content/repositories/thirdparty</url>
+        </repository>
+        <repository>
+            <id>openqa-release-repo</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>http://archiva.openqa.org/repository/releases</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+          <groupId>org.openqa.selenium.grid</groupId>
+          <artifactId>selenium-grid-tools</artifactId>
+          <version>1.0.2</version>
+        </dependency> 
+
+        <dependency>
+            <groupId>tellurium</groupId>
+            <artifactId>tellurium-core</artifactId>
+            <version>0.6.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium.server</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>1.0.1-te</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium.client-drivers</groupId>
+            <artifactId>selenium-java-client-driver</artifactId>
+            <version>1.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.codehaus.groovy.maven.runtime</groupId>
+                    <artifactId>gmaven-runtime-default</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.seleniumhq.selenium.core</groupId>
+                    <artifactId>selenium-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.seleniumhq.selenium.server</groupId>
+                    <artifactId>selenium-server</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>1.6.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>caja</groupId>
+            <artifactId>json_simple</artifactId>
+            <version>r1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.stringtree</groupId>
+            <artifactId>stringtree-json</artifactId>
+            <version>2.0.10</version>
+        </dependency>
+    </dependencies>
+}}}
+
+Here is a [http://code.google.com/p/aost/wiki/TelluriumTestProjectMavenSamplePom sample POM file] for a Tellurium project.
+
+For an Ant user, you should download [http://code.google.com/p/aost/downloads/list Tellurium core 0.6.0 jar file] from [http://code.google.com/p/aost/downloads/list Tellurium project download page], [http://code.google.com/p/aost/downloads/list the Tellurium dependency file], and [http://code.google.com/p/aost/wiki/TelluriumSampleConfigurationFile the Tellurium configuration file]. Unpack the Tellurium dependency file to your project /lib directory together with the Tellurium core 0.6.0 jar file. Name the Tellurium configuration file as TelluriumConfig.groovy and put it at your project root directory. 
+
+For Ant build scripts, please see [http://code.google.com/p/aost/wiki/TelluriumSampleAntBuildScript the sample Tellurium Ant build scripts]
+
+=== Tellurium Reference Projects ===
+
+If you are new to Tellurium, [http://code.google.com/p/aost/wiki/ReferenceProjectGuide Tellurium reference projects] could be your good starting point. There are two reference projects, i.e., [http://code.google.com/p/aost/downloads/list  tellurium-junit-java] and [[http://code.google.com/p/aost/downloads/list tellurium-testng-java], where can be downloaded from [http://code.google.com/p/aost/downloads/list Tellurium project download page].
+
+Basically, the two sub-projects are the same and the only difference is that tellurium-junit-java uses JUnit 4 and tellurium-testng-java uses TestNG. 
+
+The reference projects illustrate the following usages of Tellurium:
+
+  * How to create your own Tellurium testing project using tellurium jar files.
+  * How to create your own UI Objects and wire them into Tellurium core
+  * How to create UI module files in Groovy
+  * How to create JUnit tellurium testing files in Java
+  * How to create and run DSL scripts
+  * How to create Tellurium Data Driven tests
+  * How to configure Tellurium with the configuration file TelluriumConfig.groovy
+  * Ant build script
+  * Maven POM
+
+=== Feedback ===
+
+Please report any problems back to Tellurium User Group at
+
+http://groups.google.com/group/tellurium-users
