@@ -19,31 +19,31 @@ Tellurium 0.6.0 包括以下模块:
 
 Tellurium 0.6.0 是一个具有很多新特性的一个版本。其中最大的更新包括增加对jQuery selector的支持，jQuery Selector缓存, Selenium Grid支持, 用于批量数据处理的新的API和无数其他的更新. 具体内容青参阅[http://code.google.com/p/aost/wiki/WhatsNewInTellurium_0_6_0 Whats New in Tellurium 0.6.0].
 
-We customized selenium-core 1.0.1 and embedded our Engine code into it. The Engine mainly provides jQuery selector support, jQuery selector caching, and a set of new APIs. 
+同时，我们改变了selenium-core 1.0.1，在其中加入了我们自己的Engine代码来支持jQuery selector和新的API. 
 
-=== How to Obtain Tellurium 0.6.0 ===
+=== 如何获取Tellurium 0.6.0 ===
 
-For a Maven user, the best way to obtain Tellurium 0.6.0 is to use Tellurium Maven archetypes, which include tellurium-junit-archetype and tellurium-testng-archetype for Tellurium JUnit test project and Tellurium TestNG test project, respectively.
+如果你对Maven熟悉， 最简便的方法是用Tellurium Maven archetypes, 它包括tellurium-junit-archetype和tellurium-testng-archetype，分别用于创建Tellurium JUnit项目和Tellurium TestNG项目.
 
-To create a Tellurium JUnit test project, the the following Maven command,
+例如，创建Tellurium JUnit项目，可用以下Maven命令,
 
 {{{
 mvn archetype:create -DgroupId=your_group_id -DartifactId=your_artifact_id -DarchetypeArtifactId=tellurium-junit-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0 -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/releases
 }}} 
 
-and for a Tellurium TestNG project, use
+而Tellurium TestNG项目，则应该用，
 
 {{{
 mvn archetype:create -DgroupId=your_group_id -DartifactId=your_artifact_id -DarchetypeArtifactId=tellurium-testng-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0 -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/releases
 }}} 
 
-The skeleton project created by the Tellurium Maven archetype type includes a sample test case, GoogleSearchTestCase. You can simply go to the project directory and run the following command to test it,
+被创建的项目带了一个测试例子, GoogleSearchTestCase. 你可以进入项目目录，然后运行下面命令去运行它,
 
 {{{
 mvn test
 }}}
 
-If you have already had a test project and want to include Tellurium 0.6.0 in, please add the following section to your POM file,
+如果你想把Tellurium 0.6.0加到一个已有的项目中, 需要把以下内容加到你的POM文件中,
 
 {{{
    <repositories>
@@ -140,11 +140,11 @@ If you have already had a test project and want to include Tellurium 0.6.0 in, p
     </dependencies>
 }}}
 
-Here is a [http://code.google.com/p/aost/wiki/TelluriumTestProjectMavenSamplePom sample POM file] for a Tellurium project.
+这里是一个［http://code.google.com/p/aost/wiki/TelluriumTestProjectMavenSamplePom 示范的POM文件] 以供你参考.
 
-For an Ant user, you should download [http://code.google.com/p/aost/downloads/list Tellurium core 0.6.0 jar file] from [http://code.google.com/p/aost/downloads/list Tellurium project download page], [http://code.google.com/p/aost/downloads/list the Tellurium dependency file], and [http://code.google.com/p/aost/wiki/TelluriumSampleConfigurationFile the Tellurium configuration file]. Unpack the Tellurium dependency file to your project /lib directory together with the Tellurium core 0.6.0 jar file. Name the Tellurium configuration file as TelluriumConfig.groovy and put it at your project root directory. 
+对Ant用户，你需要从[http://code.google.com/p/aost/downloads/list Tellurium项目下载页]来下载[http://code.google.com/p/aost/downloads/list Tellurium core 0.6.0 jar], [http://code.google.com/p/aost/downloads/list Tellurium相关文件], 和 [http://code.google.com/p/aost/wiki/TelluriumSampleConfigurationFile Tellurium配置文件]. 你要把Tellurium相关文件解压到项目的/lib目录下，并把Tellurium core 0.6.0 jar放到同一路径下. 并将Tellurium配置文件命名为TelluriumConfig.groovy，然后放到项目根目录下. 
 
-For Ant build scripts, please see [http://code.google.com/p/aost/wiki/TelluriumSampleAntBuildScript the sample Tellurium Ant build scripts]
+这里是[http://code.google.com/p/aost/wiki/TelluriumSampleAntBuildScript 示范的Ant脚本]以供你参考。
 
 === Tellurium Reference Projects ===
 
