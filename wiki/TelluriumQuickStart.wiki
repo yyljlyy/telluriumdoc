@@ -245,7 +245,7 @@ http://tellurium-users.googlegroups.com/web/HowToUseTellurium.png?gda=E2fneEcAAA
 有三种方法创建自己的Tellurium测试项目。一是从[http://code.google.com/p/aost/downloads/list Tellurium下载网页]下载文件手工创建，这样比较费事。或者下载Tellurium的参考项目，用它作为你的模板项目。更方便的方法是用Tellurium的Maven archetype来创建，非常简单，一个Maven命令就完事, 比如：
 
 {{{
-mvn archetype:create -DgroupId=example -DartifactId=demo -DarchetypeArtifactId=tellurium-junit-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0-SNAPSHOT  -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/snapshots
+mvn archetype:create -DgroupId=example -DartifactId=demo -DarchetypeArtifactId=tellurium-junit-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=0.6.0  -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/releases
 }}}
 
 这个命令创建了Tellurium JUnit 测试项目。然后用编辑器如IntelliJ IDEA打开项目用如下部步骤，
@@ -280,7 +280,7 @@ mvn test
 如果你想创建TestNG项目，可以用以下Maven命令：
 
 {{{
-mvn archetype:create -DgroupId=your_group_id -DartifactId=your_artifact_id -DarchetypeArtifactId=tellurium-testng-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=1.0-SNAPSHOT -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/snapshots
+mvn archetype:create -DgroupId=your_group_id -DartifactId=your_artifact_id -DarchetypeArtifactId=tellurium-testng-archetype -DarchetypeGroupId=tellurium -DarchetypeVersion=0.6.0 -DarchetypeRepository=http://kungfuters.org/nexus/content/repositories/releases
 }}}
 
 = 创建自己的UI模块 =
