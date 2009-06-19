@@ -242,6 +242,29 @@ Obviously, all Ui Objects will inherit the above attributes and methods. But be 
 
 In this way, Tellurium will first map the UiID "google_start_page.googlesearch" to the actual Ui object and then call the _click_ method on it. If that Ui object does not have the _click_ method defined, you will get an error.
 
+=== UI Object Default Attributes ===
+
+Tellurium UI objects have some default attributes as shown in the following table:
+
+|| *Tellurium物件* || *Locator缺省属性* || *额外属性* || *UI模板* ||
+|| Button || tag: "input" || ||  ||
+|| Container || || group ||  ||
+|| CheckBox || tag: "input", type: "checkbox" ||  ||  ||
+|| Div || tag: "div" ||  ||  ||
+|| Form || tag: "form" || group ||  || 
+|| Image || tag: "img" || ||  ||
+|| InputBox || tag: "input" ||  ||  ||
+|| RadioButton || tag: "input", type: "radio" ||  ||  ||
+|| Selector || tag: "select" ||  ||  ||
+|| Span || tag: "span" ||  ||  ||
+|| SubmitButton || tag: "input", type: "submit" ||  ||  ||
+|| UrlLink || tag: "a" ||  ||  ||
+|| List ||  || separator || 可用 ||
+|| Table || tag: "table" || group, header || 可用 ||
+|| StandardTable || tag: "table" || group, header, footer || 可用 ||
+|| Frame ||  || group, id, name, title ||  ||
+|| Window ||  || group, id, name, title ||  ||
+
 === Button ===
 
 Button represents various Buttons on the web and its default tag is "input". The following methods can be applied to Button:
