@@ -256,7 +256,7 @@ Example:
 Button(uid: "searchButton", clocator: [value: "Search", name: "btn"])
 }}}
 
-=== SubmitButton ===
+=== Submit Button ===
 
 SubmitButton is a special Button with its type being "submit".
 
@@ -266,7 +266,7 @@ Example:
 SubmitButton(uid: "search_web_button", clocator: [value: "Search the Web"])
 }}}
 
-=== CheckBox ===
+=== Check Box ===
 
 The CheckBox on the web is abstracted as "CheckBox" Ui object. The default tag for CheckBox is "input" and its type is "checkbox". CheckBox comes with the following methods:
 
@@ -321,7 +321,7 @@ Example:
 Icon(uid: "taskIcon", clocator:[tag: "p", dojoonclick: 'doClick', img: "Show_icon.gif"] )
 }}}
 
-=== RadioButton ===
+=== Radio Button ===
 
 RadioButton is the abstract object for the Radio Button Ui. As a result, its default tag is "input" and its type is "radio". RadioButton has the following additional methods:
 
@@ -336,7 +336,7 @@ Example:
 RadioButton(uid: "autoRenewal", clocator: [dojoattachpoint: 'dap_auto_renew'])
 }}}
 
-=== TextBox ===
+=== Text Box ===
 
 TextBox is the abstract Ui object from which you can get back the text, i.e., it comes with the method:
 
@@ -350,7 +350,7 @@ Example:
 TextBox(uid: "searchLabel", clocator: [tag: "span"])
 }}}
 
-=== InputBox ===
+=== Input Box ===
 
 InputBox is the Ui where user types in input data. As its name stands, InputBox's default tag is "input". InputBox has the following additional methods:
 
@@ -367,7 +367,7 @@ Example:
 InputBox(uid: "searchBox", clocator: [name: "q"])
 }}}
 
-=== UrlLink ===
+=== Url Link ===
 
 UrlLink stands for the web url link, i.e., its tag is "a". UrlLink has the following additional methods:
 
@@ -512,7 +512,7 @@ Container(uid: "tables", clocator:[:]){
 
 }}}
 
-=== StandardTable ===
+=== Standard Table ===
 
 A StandardTable is a table in the following format
 
@@ -585,7 +585,7 @@ List(uid: "subcategory", locator: "", separator: "p"){
 }
 }}} 
 
-=== SimpleMenu ===
+=== Simple Menu ===
 
 The SimpleMenu represent a menu without a header and only contains menu items. The default tag is "div" and user should specify the alias name for each menu item. For example,
 
@@ -603,7 +603,7 @@ The SimpleMenu has the following methods:
   * mouseOve()
   * mouseOut()
 
-=== SelectMenu ===
+=== Select Menu ===
 
 SelectMenu is designed for the selecting column menu on the Tellurium Issues page and it is prototyped to demonstrate how to write Ui object with interaction with the DOM since the Ui elements have different patterns at runtime, hence, it is not a general purpose Ui object. SelectMenu could have a header and its menu item content could keep changing when users select different columns to display. 
 
