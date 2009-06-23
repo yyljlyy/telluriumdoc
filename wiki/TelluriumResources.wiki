@@ -15,6 +15,14 @@
 
   * 张凯峰代表InfoQ China对Tellurium创始人方剑博士的采访: [http://www.infoq.com/cn/articles/tellurium-testing-framework 开源自动测试框架Tellurium]
 
+== 演示类 ==
+
+  * [http://code.google.com/p/aost/downloads/list Tellurium演示] (在线版 [http://video.google.com/videoplay?docid=-7547683963743870970 Part I] [http://video.google.com/videoplay?docid=2145192284694104042 Part II])
+  * [http://www.slideshare.net/John.Jian.Fang/telluriumanewapproachforwebtesting 在线幻灯片: Tellurium - A New Approach For Web Testing]
+  * [http://www.slideshare.net/John.Jian.Fang/ten-minutes-to-tellurium 在线幻灯片: 10 Minutes to Tellurium] 
+  * [http://aost.googlecode.com/files/TenMinutesToTellurium.ogg 演示Screencast: 10 Minutes to Tellurium] ([http://www.youtube.com/watch?v=DyUPeg-Y-Yg  在线版])
+  * [http://code.google.com/p/aost/wiki/TelluriumVideo1 对Tellurium初学者的演示视频]
+
 == 语言类 ==
 
   * [http://groovy.codehaus.org/ Groovy]
@@ -45,10 +53,3 @@
 
   * [http://ant.apache.org/ Ant]
   * [http://maven.apache.org/ Maven]
-
-== 演示类 ==
-
-  * [http://code.google.com/p/aost/downloads/list Tellurium演示] (在线版 [http://video.google.com/videoplay?docid=-7547683963743870970 Part I] [http://video.google.com/videoplay?docid=2145192284694104042 Part II])
-  * [http://www.slideshare.net/John.Jian.Fang/telluriumanewapproachforwebtesting 在线幻灯片: Tellurium - A New Approach For Web Testing]
-  * [http://www.slideshare.net/John.Jian.Fang/ten-minutes-to-tellurium 在线幻灯片: 10 Minutes to Tellurium] 
-  * [http://aost.googlecode.com/files/TenMinutesToTellurium.ogg 演示Screencast: 10 Minutes to Tellurium] ([http://www.youtube.com/watch?v=DyUPeg-Y-Yg  在线版])
