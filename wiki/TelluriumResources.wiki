@@ -36,6 +36,7 @@
 
   * [http://code.google.com/p/aost Tellurium网址]
   * [http://groups.google.com/group/tellurium-users Tellurium用户组]
+  * [http://twitter.com/TelluriumTest Tellurium Twitter网址]
   * [http://seleniumhq.org/ Selenium网址]
   * [http://clearspace.openqa.org/community/selenium Selenium社区]
   * [http://webtest.canoo.com Canoo WebTest网址]
