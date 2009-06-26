@@ -3,7 +3,7 @@
 
 <wiki:toc max_depth="5" />
 
-== 博客 ==
+== 文章 ==
 
   * [http://notetodogself.blogspot.com/2009/02/functional-testing-with-tellurium.html Fuctional Testing with Tellurium by Mikhail Koryak]
   * [http://epyramid.wordpress.com/2009/06/02/tellurium-automation-process/ Tellurium and test automation process by Haroon Rasheed]
