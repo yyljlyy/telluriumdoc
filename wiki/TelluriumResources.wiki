@@ -5,6 +5,9 @@
 
 == 文章类 ==
 
+  * [http://code.google.com/p/aost/wiki/TenThingsYouShouldKnowAboutTellurium Ten Things You Should Know About Tellurium by Jian Fang]
+  * [http://code.google.com/p/aost/wiki/TopTenTelluriumFeatures Top Ten Cool Features in Tellurium by Jian Fang]
+  * [http://code.google.com/p/aost/wiki/WhatsNewInTellurium_0_6_0 What's New in Tellurium 0.6.0 by Jian Fang] 
   * [http://notetodogself.blogspot.com/2009/02/functional-testing-with-tellurium.html Functional Testing with Tellurium by Mikhail Koryak]
   * [http://epyramid.wordpress.com/2009/06/02/tellurium-automation-process/ Tellurium and test automation process by Haroon Rasheed]
   * [http://notetodogself.blogspot.com/2009/06/tellurium-better-functional-test.html Tellurium: A Better Functional Test by Mikhail Koryak]
