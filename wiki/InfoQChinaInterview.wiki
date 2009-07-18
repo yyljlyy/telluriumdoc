@@ -1,3 +1,4 @@
+#labels Featured,interview
 [http://code.google.com/p/aost/ Tellurium自动测试框架]是一款针对web应用、基于UI模块的自动测试平台。UI模块是由一组复合的UI对象以嵌套的形式组成，比如，Google的搜索UI模块可以表示成：
 {{{
 ui.Container(uid: “GoogleSearchModule”, clocator: [tag: "td"], group: “true”){
