@@ -61,7 +61,7 @@ waitForPageToLoad 30000
 
 *9、能给国内的用户一个快速的开始吗？怎么立刻感受到Tellurium带来的好处？*
 
-    我们提供了一份[http://code.google.com/p/telluriumdoc/wiki/TelluriumQuickStart 中文版的Tellurium QuickStart]，还有一个短小的演示: [http://code.google.com/p/aost/wiki/TenMinutesToTellurium 十分钟感受Tellurium] (10 minutes to Tellurium)。它包括利用Tellurium Maven archetype去建立一个新的Tellurium测试项目，再用 Tellurium Firefox plugin TrUMP去自动生成一个UI Module，然后再写自己的Tellurium测试代码。
+    我们提供了一份[TelluriumQuickStart 中文版的Tellurium QuickStart]，还有一个短小的演示: [http://code.google.com/p/aost/wiki/TenMinutesToTellurium 十分钟感受Tellurium] (10 minutes to Tellurium)。它包括利用Tellurium Maven archetype去建立一个新的Tellurium测试项目，再用 Tellurium Firefox plugin TrUMP去自动生成一个UI Module，然后再写自己的Tellurium测试代码。
     如果用户不熟悉Maven, 他可以下载[http://code.google.com/p/aost/wiki/ReferenceProjectGuide Tellurium参考项目](Tellurium Reference Project). 这个项目是我们用来测试Tellurium项目网页的。包括了各种例子，可以直接运行。
 
 更多有关Tellurium的信息，请参考DZone上的[http://www.dzone.com/links/search.html?query=tellurium&x=0&y=0 相关资料]和Tellurium的[http://code.google.com/p/aost/w/list Wiki]。敬请期待Tellurium在InfoQ中文站的更多技术文章。
