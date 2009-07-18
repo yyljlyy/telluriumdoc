@@ -1,7 +1,15 @@
 #labels Featured,Proposal
 = Tellurium: 一个敏捷的Web测试框架 =
 
-Tellurium是一个开源的Web自动测试框架。大多数的Web测试框架如著名的Selenium和Canno WebTest等都是侧重于单个的UI元素，而Tellurium是基于UI模块的。UI模块是由一组复合的UI对象以嵌套的形式组成。 运用UI模块可以使系统自动生成运行时(Runtime)的Locator（定位器?)，这样使得Tellurium可以自动适应UI模块中元素的改变而更具有鲁棒性。其次，UI模块使得Tellurium有很好的表述性(Expressive)，你可以用更有意义的名称来引用UI元素而不是它的Locator。由于Tellurium侧重一个集合的元素，而不是单个元素，这样使得我们可以利用元素之间的关系来帮助我们定位他们在DOM中的位置. Tellurium Widget增加了UI模块的重用性. 在你的测试代码中可以直接引用这个Widget，而不需要重新定义一个个的单个元素。Tellurium的UI模板（UI templates）可以用来表述动态网页内容，使得Ajax应用程序的测试变得可行和容易。此外, Tellurium定义了一系列的Domain Specific Language (DSL)来定义UI模块和对元素的操作，这样增加了表达性使得用户很容易编写, 更新,和维护测试代码. Tellurium是用Groovy和Java实现的，而测试代码可以用Java, Groovy, 和纯DSL脚本来写。综上所述, Tellurium是一个敏捷的Web测试框架.
+Tellurium是一个开源的Web自动测试框架。大多数的Web测试框架如著名的Selenium和Canno WebTest等都是侧重于单个的UI元素，而Tellurium是基于UI模块的。UI模块是由一组复合的UI对象以嵌套的形式组成。 运用UI模块可以使系统自动生成运行时(Runtime)的Locator（定位器?)，这样使得Tellurium可以自动适应UI模块中元素的改变而更具有鲁棒性。其次，UI模块使得Tellurium有很好的表述性(Expressive)，你可以用更有意义的名称来引用UI元素而不是它的Locator。由于Tellurium侧重一个集合的元素，而不是单个元素，这样使得我们可以利用元素之间的关系来帮助我们定位他们在DOM中的位置。
+
+Tellurium Widget增加了UI模块的重用性. 在你的测试代码中可以直接引用这个Widget，而不需要重新定义一个个的单个元素。
+
+Tellurium的UI模板（UI templates）可以用来表述动态网页内容，使得Ajax应用程序的测试变得可行和容易。
+
+此外, Tellurium定义了一系列的Domain Specific Language (DSL)来定义UI模块和对元素的操作，这样增加了表达性使得用户很容易编写, 更新,和维护测试代码。
+
+Tellurium是用Groovy和Java实现的，而测试代码可以用Java, Groovy, 和纯DSL脚本来写。综上所述, Tellurium是一个敏捷的Web测试框架.
 
 Tellurium是在Selenium的基础上发展而来的，但它的测试理念和Selenium隽然不同，Tellurium不是一个”复制和重播“模式的测试工具，它要求你先定义你要测试的UI再写测试代码，强调UI模块和测试代码的分离，这样使得测试代码的更新和维护非常方便。 
 
