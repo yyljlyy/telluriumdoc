@@ -281,7 +281,9 @@ special UIDs such as "2", "all", or "row: 1, column: 2".
 For use case (2), a common application is the data grid. Look at the "issueResult" data grid on our Tellurium Issues page:
 
 {{{
-ui.Table(uid: "issueResult", clocator: [id: "resultstable", class: "results"], group: "true") {
+ui.Table(uid: "issueResult", clocator: [id: "resultstable", class: "results"], 
+         group: "true") 
+{
     TextBox(uid: "header: 1",  clocator: [:])
     UrlLink(uid: "header: 2",  clocator: [text: "%%ID"])
     UrlLink(uid: "header: 3",  clocator: [text: "%%Type"])
@@ -333,7 +335,8 @@ The above code will not respond to the click event since the Tellurium RadioButt
 
 {{{
  ui.Container(uid: "form", clocator: [whatever]){
-     RadioButton(uid: "billing", clocator: [name: 'mas_address_key', value: '5779'], respond: ["click"])
+     RadioButton(uid: "billing", clocator: [name: 'mas_address_key', value: '5779'], 
+               respond: ["click"])
  }
 }}}
 
@@ -348,7 +351,8 @@ Even if the RadioButton does not have the _click_ method defined by default, it 
 A more general example is as follows:
 
 {{{
- InputBox(uid: "searchbox", clocator: [title: "Google Search"], respond: ["click", "focus", "mouseOver", "mouseOut", "blur"])
+ InputBox(uid: "searchbox", clocator: [title: "Google Search"], 
+          respond: ["click", "focus", "mouseOver", "mouseOut", "blur"])
 }}}
 
 Except for the "click" event, all of the "focus", "mouseOver", "mouseOut", and "blur" events will be automatically fired by Tellurium during testing. Do not worry about the event order for the respond attribute, Tellurium will automatically re-order the events and then process them appropriately for you.
@@ -435,8 +439,10 @@ class DatePickerDemo extends DslContext{
         ui.Form(uid: "dropdown", clocator: [:], group: "true"){
             TextBox(uid: "label", clocator: [tag: "h4", text: "Dropdown:"])
             InputBox(uid: "input", clocator: [dojoattachpoint: "valueInputNode"])
-            Image(uid: "selectDate", clocator: [title: "select a date", dojoattachpoint: "containerDropdownNode", alt: "date"])
-            DOJO_DatePicker(uid: "datePicker", clocator: [tag: "div", dojoattachpoint: "subWidgetContainerNode"])
+            Image(uid: "selectDate", clocator: [title: "select a date", 
+                            dojoattachpoint: "containerDropdownNode", alt: "date"])
+            DOJO_DatePicker(uid: "datePicker", clocator: [tag: "div", 
+                            dojoattachpoint: "subWidgetContainerNode"])
         }
     }
 }
@@ -527,7 +533,9 @@ After we customize the UI module, we export it as the module file NewUiModule.gr
 class NewUiModule extends DslContext {
 
   public void defineUi() {
-    ui.Form(uid: "TelluriumDownload", clocator: [tag: "form", method: "get", action: "list"], group: "true") {
+    ui.Form(uid: "TelluriumDownload", clocator: [tag: "form", method: "get", action: "list"], 
+           group: "true") 
+{
       Selector(uid: "DownloadType", clocator: [tag: "select", name: "can", id: "can"])
       InputBox(uid: "Input", clocator: [tag: "input", type: "text", name: "q", id: "q"])
       SubmitButton(uid: "Search", clocator: [tag: "input", type: "submit", value: "Search"])
