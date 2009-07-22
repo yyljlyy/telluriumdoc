@@ -3045,7 +3045,9 @@ build.xml:
 		<path refid="test.classpath" />
 	</path>
 
-	<taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask" classpathref="junit.classpath" />
+	<taskdef name="junit" 
+         classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask" 
+         classpathref="junit.classpath" />
 
 	<target name="clean">
 		<echo message="Cleaning ..." />
