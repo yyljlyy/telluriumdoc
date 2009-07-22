@@ -2,9 +2,7 @@
 #labels Phase-Design,Phase-Support,Featured
 <wiki:toc max_depth="5" />
 
-= Tellurium User Guide =
-
-== Tellurium Overview ==
+== Introduction ==
 
 === Motivations ===
 
