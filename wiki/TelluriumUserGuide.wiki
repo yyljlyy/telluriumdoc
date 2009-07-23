@@ -226,7 +226,13 @@ ui.Container(uid: "parent_ui"){
 }}}
 
 the TextBox is referred as "parent_ui.child_ui.grand_child.textbox1". The exceptions are tables and lists, which use {{{[x][y]}}} or {{{[x]}}} to reference its elements inside. For example, {{{labels_table[2][1]}}} and {{{GoogleBooksList.subcategory[2]}}}. Table header can be referred in the format of {{{issueResult.header[2]}}}.
- 
+
+More general case can be shown by the following diagram,
+
+http://tellurium-users.googlegroups.com/web/TelluriumUID.png?gda=Ewu9OkIAAAD5mhXrH3CK0rVx4StVj0LYJWJZMftxLZyWDn45QfUHefQJMzacoSN0t8eFUXmEG4hV4u3aa4iAIyYQIqbG9naPgh6o8ccLBvP6Chud5KMzIQ&gsc=D-2lBwsAAABkwKwxr1YSWDDrmKhvxTo1
+
+For example, the UiID of the List _E_ in the above diagram is {{{A.C.E}}} and the InputButton in the List _E_ is referred by its index _{{{n}}}_, i.e., {{{A.C.E[n]}}}. 
+
 == Group Locating ==
 
 In the Tellurium UI module, you often see the "group" attribute. For example:
