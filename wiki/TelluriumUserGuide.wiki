@@ -877,7 +877,7 @@ tellurium{
 
 == Mock Http Server ==
 
-The MockHttpServer is an embedded http server leveraging the Java 6 http server and it is very convenient to test HTML source directly without running a web server. The MockHttpServer includes an embedded http server, a http handler, and a http port with the following constructors
+This feature only exists in Tellurium Core 0.7.0 SNAPSHOT. The MockHttpServer is an embedded http server leveraging the Java 6 http server and it is very convenient to test HTML source directly without running a web server. The MockHttpServer includes an embedded http server, a http handler, and a http port with the following constructors
 
 {{{
  public MockHttpServer()
@@ -3167,6 +3167,47 @@ For example, in the test case file,
 You should escape the "." or other jQuery reserved characters.
 
 For example, use "dateOfBirth.\\month" for "dateOfBirth.month" as the ID.
+
+== How to Use Tellurium for XHTML ==
+
+For XHTML, you need to use the _namespace attribute in the UI object, for example,
+
+{{{
+ui.Container(uid:"caseRecordPopUp", clocator:[id:"CaseRecordsPopUp",
+              tag:"div"],namespace:"xhtml",group:"true") {
+    Container(uid:"date",clocator:[id:"caseRecordPopUpDate",
+              tag:"input"], namespace:"xforms")
+    ......
+
+} 
+}}}
+
+You can register a custom namespace as follows,
+
+{{{
+registerNamespace("xforms", "http://www.w3.org/2002/xforms")
+}}}
+
+and use the following method to get back the namespace
+
+{{{
+getNamespace("xforms"); 
+}}}
+
+== How to Contribute to Tellurium ==
+
+We welcome contributions in many different ways, for example,
+
+  # Try out Tellurium
+  # Use Tellurium in your project and report bugs
+  # Ask questions and answer other users' questions
+  # Promote Tellurium and post your experience on Tellurium
+  # Fix bugs for Tellurium
+  # Bring in new ideas and suggestions
+
+Our project team is open for new members and is expecting new members. We need some new developers who are JavaScript and jQuery experts to join our development team. If you have free time and want to contribute to Tellurium, please contact Jian Fang or other existing Tellurium members.
+
+We also expect to have some Evangelism Team members, who could write blogs and articles about Tellurium, or present Tellurium to people, i.e., promote Tellurium in various ways. We welcome Evangelism Team members from different parts of the world and promote Tellurium in different Languages.  
 
 = Tellurium Support =
 
