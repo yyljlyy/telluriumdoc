@@ -990,8 +990,7 @@ customDirectCall(String method, Object[] args)
 
 [http://code.google.com/p/aost/w/edit/DataDrivenTesting Data Driven Testing] is a different way to write tests, i.e, separate test data from the test scripts and the test flow is not controlled by the test scripts, but by the input file instead. In the input file, users can specify which tests to run, what are input parameters, and what are expected results. Data driven testing in Tellurium can be illustrated by the following system diagram. 
 
-http://tellurium-users.googlegroups.com/web/tellurium.data.driven.jpg?gda=_1pLcEsAAACjbvY1r0rMz6MRbvC-tSqoysMSW8LOE1CninSxbdL8I2ArWKkWH9uGyxs8H0RkPsAdq11J_EY5XIrmvbkBlJwJBkXa90K8pT5MNmkW1w_4BQ&gsc=httiOwsAAAAISLBF63vg48UkWer0gDjz
-
+http://tellurium-users.googlegroups.com/web/TelluriumDataDrivenSmall.jpg?gda=WePTVk4AAAD5mhXrH3CK0rVx4StVj0LYYQ-a0sZzxEmmZWlHbP2MWzTrErMgjh_s8-a7FfMpsGsNL5bu5vgQy2xsA01CuO9M47Cl1bPl-23V2XOW7kn5sQ&gsc=ODykzgsAAACEc2FtJPGdXe_7CHb1VB6Z
 
 The tellurium data driven test consists of three main parts, i.e., Data Provider, TelluriumDataDrivenModule, and TelluriumDataDrivenTest. The data provider is responsible for reading data from input stream and converting data to Java variables. Tellurium provides the following data provider methods:
 
@@ -1215,8 +1214,7 @@ logMessage "Found ${actual.size()} ${issueTypeLabel} for owner " + issueOwner
 
 TelluriumDataDrivenTest is the class users should extend to run the actual data driven testing and it is more like a data driven testing engine. There is only one method, "testDataDriven", which users need to implement. The sequence diagram for the testing process is shown as follows.
  
-
-http://tellurium-users.googlegroups.com/web/ddt_test_sequence.jpg?gda=M_GJLEcAAACjbvY1r0rMz6MRbvC-tSqoOiEqD7Mi6G5cLzJ9CIeLB-TPT63Q-1cxaIO0tQmR15XiNflBnS90ecEO3zvz3dEqeV4duv6pDMGhhhZdjQlNAw&gsc=httiOwsAAAAISLBF63vg48UkWer0gDjz
+http://tellurium-users.googlegroups.com/web/DDTTestSequenceSmall.jpg?gda=yvHtOkoAAAD5mhXrH3CK0rVx4StVj0LYmomEnGFFHgl3k6Le3Z-IdFt-26viTG2BSEP5bwf5CM6Qf_WghRi5q04p1A7gHihU_e3Wg0GnqfdKOwDqUih1tA&gsc=ODykzgsAAACEc2FtJPGdXe_7CHb1VB6Z
 
 Usually, users need to do the following steps:
 
@@ -1380,8 +1378,7 @@ http://selenium-grid.seleniumhq.org/download.html
 
 Following is the illustration of the environment.
 
-http://tellurium-users.googlegroups.com/web/grid_setup%20(3).png?hl=en&gsc=k9PUBQsAAAD0iHvYwplYsVJSt_ydkZvu
-
+http://tellurium-users.googlegroups.com/web/TelluriumGridSetup.png?gda=9fgieUgAAAD5mhXrH3CK0rVx4StVj0LYYQ-a0sZzxEmmZWlHbP2MW6uQS0SyLBzYwfM7_kvx7qklzhb83kORdLwM2moY-MeuGjVgdwNi-BwrUzBGT2hOzg&gsc=ODykzgsAAACEc2FtJPGdXe_7CHb1VB6Z
 
 The first step would be to launch the selenium grid hub on the hub machine. Open up a terminal on the HUB machine *hub.tellurium.com* and go to the download directory of Selenium Grid.
 
