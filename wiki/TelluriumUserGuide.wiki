@@ -624,97 +624,96 @@ The new methods are listed here:
   * Get the Generated locator from the UI module
 
   Locator agnostic:
-    * String getLocator(String uid)
+    * {{{String getLocator(String uid)}}}
 
   JQuery selector specific:
-    * String getSelector(String uid)
+    * {{{String getSelector(String uid)}}}
 
   XPath specific: 
-    * String getXPath(String uid) 
+    * {{{String getXPath(String uid)}}} 
 
   * Get the Number of Elements matching the Locator
 
   Locator agnostic:
-    * Number getLocatorCount(String locator)
+    * {{{Number getLocatorCount(String locator)}}}
 
   JQuery selector specific:
-    * Number getJQuerySelectorCount(String jQuerySelector)
+    * {{{Number getJQuerySelectorCount(String jQuerySelector)}}}
 
   XPath specific: 
-    * Number getXpathCount(String xpath) 
+    * {{{Number getXpathCount(String xpath)}}} 
  
   * Table methods
 
   Locator agnostic:
-    * int getTableHeaderColumnNum(String uid) 
-    * int getTableFootColumnNum(String uid)
-    * int getTableMaxRowNum(String uid)
-    * int getTableMaxColumnNum(String uid)
-    * int getTableMaxRowNumForTbody(String uid, int ntbody)
-    * int getTableMaxColumnNumForTbody(String uid, int ntbody)
-    * int getTableMaxTbodyNum(String uid)
+    * {{{int getTableHeaderColumnNum(String uid)}}} 
+    * {{{int getTableFootColumnNum(String uid)}}}
+    * {{{int getTableMaxRowNum(String uid)}}}
+    * {{{int getTableMaxColumnNum(String uid)}}}
+    * {{{int getTableMaxRowNumForTbody(String uid, int ntbody)}}}
+    * {{{int getTableMaxColumnNumForTbody(String uid, int ntbody)}}}
+    * {{{int getTableMaxTbodyNum(String uid)}}}
 
   JQuery selector specific:
-    * int getTableHeaderColumnNumBySelector(String uid)
-    * int getTableFootColumnNumBySelector(String uid)
-    * int getTableMaxRowNumBySelector(String uid)
-    * int getTableMaxColumnNumBySelector(String uid)
-    * int getTableMaxRowNumForTbodyBySelector(String uid, int ntbody)
-    * int getTableMaxColumnNumForTbodyBySelector(String uid, int ntbody)
-    * int getTableMaxTbodyNumBySelector(String uid)
-
+    * {{{int getTableHeaderColumnNumBySelector(String uid)}}}
+    * {{{int getTableFootColumnNumBySelector(String uid)}}}
+    * {{{int getTableMaxRowNumBySelector(String uid)}}}
+    * {{{int getTableMaxColumnNumBySelector(String uid)}}}
+    * {{{int getTableMaxRowNumForTbodyBySelector(String uid, int ntbody)}}}
+    * {{{int getTableMaxColumnNumForTbodyBySelector(String uid, int ntbody)}}}
+    * {{{int getTableMaxTbodyNumBySelector(String uid)}}}
 
   XPath specific:  
-    * int getTableHeaderColumnNumByXPath(String uid) 
-    * int getTableFootColumnNumByXPath(String uid)
-    * int getTableMaxRowNumByXPath(String uid)
-    * int getTableMaxColumnNumByXPath(String uid)
-    * int getTableMaxRowNumForTbodyByXPath(String uid, int ntbody)
-    * int getTableMaxColumnNumForTbodyByXPath(String uid, int ntbody)
-    * int getTableMaxTbodyNumByXPath(String uid) 
+    * {{{int getTableHeaderColumnNumByXPath(String uid)}}} 
+    * {{{int getTableFootColumnNumByXPath(String uid)}}}
+    * {{{int getTableMaxRowNumByXPath(String uid)}}}
+    * {{{int getTableMaxColumnNumByXPath(String uid)}}}
+    * {{{int getTableMaxRowNumForTbodyByXPath(String uid, int ntbody)}}}
+    * {{{int getTableMaxColumnNumForTbodyByXPath(String uid, int ntbody)}}}
+    * {{{int getTableMaxTbodyNumByXPath(String uid)}}} 
 
   * Check if an Element is Disabled
 
   Locator agnostic:
-    * boolean isDisabled(String uid)
+    * {{{boolean isDisabled(String uid)}}}
 
   JQuery selector specific:
-    * boolean isDisabledBySelector(String uid)
+    * {{{boolean isDisabledBySelector(String uid)}}}
 
   XPath specific: 
-    * boolean isDisabledByXPath(String uid)
+    * {{{boolean isDisabledByXPath(String uid)}}}
 
   * Get the Attribute
 
   Locator agnostic:
-    * def getAttribute(String uid, String attribute)
+    * {{{def getAttribute(String uid, String attribute)}}}
 
   * Check the CSS Class
 
   Locator agnostic
-    * def hasCssClass(String uid, String cssClass)
+    * {{{def hasCssClass(String uid, String cssClass)}}}
 
   * Get CSS Properties
 
   JQuery selector specific:
-    * String[] getCSS(String uid, String cssName)
+    * {{{String[] getCSS(String uid, String cssName)}}}
 
   * Get All Data from a Table
 
   JQuery selector specific:
-    * String[] getAllTableCellText(String uid)
-    * String[] getAllTableCellTextForTbody(String uid, int index)
+    * {{{String[] getAllTableCellText(String uid)}}}
+    * {{{String[] getAllTableCellTextForTbody(String uid, int index)}}}
 
   * Get List Size
 
   Locator agnostic:
-    * int getListSize(String uid)
+    * {{{int getListSize(String uid)}}}
 
   JQuery selector specific:
-    * getListSizeBySelector(String uid)
+    * {{{getListSizeBySelector(String uid)}}}
 
   XPath specific: 
-    * getListSizeByXPath(String uid)
+    * {{{getListSizeByXPath(String uid)}}}
  
 The are something you should be aware of for jQuery Selector:
   * If you have a duplicate "id" attribute on the page, jQuery selector always returns the first DOM reference, ignoring other DOM references with the same "id" attribute.
@@ -752,7 +751,8 @@ When you choose to use jQuery Cache mechanism, Tellurium core will pass the jQue
 
 {{{
 jquerycache={
-  "locator":"form[method=get]:has(#can, span:contains(for), input[type=text][name=q], input[value=Search][type=submit]) #can",
+  "locator":"form[method=get]:has(#can, span:contains(for), input[type=text][name=q], 
+             input[value=Search][type=submit]) #can",
   "optimized":"#can",
   "uid":"issueSearch.issueType",
   "cacheable":true,
@@ -789,7 +789,8 @@ The cached data structure is defined as
 //Cached Data, use uid as the key to reference it
 function CacheData(){
     //jQuery selector associated with the DOM reference, which is a whole selector
-    //without optimization so that it is easier to find the reminding selector for its children
+    //without optimization so that it is easier to find the reminding selector 
+    //for its children
     this.selector = null;
     //optimized selector for actual DOM search
     this.optimized = null;
@@ -804,10 +805,10 @@ function CacheData(){
 
 Tellurium Engine provides the following cache eviction policies:
 
-  * DiscardNewPolicy: discard new jQuery selector.
-  * DiscardOldPolicy: discard the oldest jQuery selector measured by the last update time.
-  * DiscardLeastUsedPolicy: discard the least used jQuery selector.
-  * DiscardInvalidPolicy: discard the invalid jQuery selector first.
+  * _DiscardNewPolicy_: discard new jQuery selector.
+  * _DiscardOldPolicy_: discard the oldest jQuery selector measured by the last update time.
+  * _DiscardLeastUsedPolicy_: discard the least used jQuery selector.
+  * _DiscardInvalidPolicy_: discard the invalid jQuery selector first.
 
 It is important to know when the cached data become invalid. There are three mechanisms we can utilize here:
   # Listen for page refresh event and invalidate the cache data accordingly
@@ -820,31 +821,31 @@ Whenever Tellurium Core passes a locator to the Engine, the Engine will first lo
 
 Tellurium Core provides the following methods for jQuery Selector cache control,
 
-  * _public void enableSelectorCache()_: Enable jQuery selector cache
+  * _{{{public void enableSelectorCache()}}}_: Enable jQuery selector cache
 
-  * _public boolean disableSelectorCache()_: Disable jQuery selector cache
+  * _{{{public boolean disableSelectorCache()}}}_: Disable jQuery selector cache
 
-  * _public boolean cleanSelectorCache()_: Cleanup the whole jQuery selector cache
+  * _{{{public boolean cleanSelectorCache()}}}_: Cleanup the whole jQuery selector cache
 
-  * _public boolean getSelectorCacheState()_: Test if the cache is enabled or not in Engine
+  * _{{{public boolean getSelectorCacheState()}}}_: Test if the cache is enabled or not in Engine
 
-  * _public void setCacheMaxSize(int size)_: Set the cache maximum size
+  * _{{{public void setCacheMaxSize(int size)}}}_: Set the cache maximum size
 
-  * _public int getCacheSize()_: Get the cache current size
+  * _{{{public int getCacheSize()}}}_: Get the cache current size
 
-  * _public int getCacheMaxSize()_: Get the cache maximum size 
+  * _{{{public int getCacheMaxSize()}}}_: Get the cache maximum size 
 
-  * _public Map<String, Long> getCacheUsage()_: Get the cache usage
+  * _{{{public Map<String, Long> getCacheUsage()}}}_: Get the cache usage
 
-  * _public void useDiscardNewCachePolicy()_: Use DiscardNewCachePolicy 
+  * _{{{public void useDiscardNewCachePolicy()}}}_: Use DiscardNewCachePolicy 
 
-  * _public void useDiscardOldCachePolicy()_: Use DiscardOldCachePolicy
+  * _{{{public void useDiscardOldCachePolicy()}}}_: Use DiscardOldCachePolicy
 
-  * _public void useDiscardLeastUsedCachePolicy()_: Use DiscardLeastUsedCachePolicy
+  * _{{{public void useDiscardLeastUsedCachePolicy()}}}_: Use DiscardLeastUsedCachePolicy
 
-  * _public void useDiscardInvalidCachePolicy()_: Use DiscardInvalidCachePolicy
+  * _{{{public void useDiscardInvalidCachePolicy()}}}_: Use DiscardInvalidCachePolicy
 
-  * _public String getCurrentCachePolicy()_: Get the current cache policy
+  * _{{{public String getCurrentCachePolicy()}}}_: Get the current cache policy
 
 == "Include" Frequently Used Sets of elements in UI Modules ==
 
