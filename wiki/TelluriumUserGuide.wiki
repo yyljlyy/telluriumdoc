@@ -507,8 +507,85 @@ locator. i.e. XPath
 
    * {{{disableJQuerySelector()}}}: Switch back to XPath locator.
 
+The above can be better illustrated the following diagram.
 
-jQuery selector only works for composite locator, i.e. clocator. You cannot have base locator, i.e., XPath, in your UI module.
+http://tellurium-users.googlegroups.com/web/xpathjqsel.png?gda=BNGlpUAAAACXZPxEX7Ki-M5C2JpeBoXXvv3pQbLsTR0DEnS8qeQoBNY-98qTaiNg3Pwb0MuStQFtxVPdW1gYotyj7-X7wDON&gsc=aNwLeQsAAABDFDbDDy4icI5hL1ANoQtp
+
+Some of the jQuery functions are provided by the custom selenium server, which is created by our Tellurium Engine project. Be aware that jQuery selector only works for composite locator, i.e. clocator. You cannot have base locator, i.e., XPath, in your UI module.
+
+How does the jQuery selector work? The basic idea is to customize Selenium Core to load the jQuery library at startup time. You can add jquery.js in to the TestRunner.html and RemoteRunner.html. Another way is dump all jquery.js into user-extensions.js. Since our Engine prototype customizes Selenium core anyway, we used the former method.
+
+After that, we register a custom locate strategy "jquery", using the following Selenium API call:
+
+{{{
+addLocationStrategy ( strategyName,functionDefinition )
+}}}
+    
+This defines a new function for Selenium to locate elements on the page. For example,
+if you define the strategy "foo", and someone runs click("foo=blah"), we'll run your
+function, passing you the string "blah", and click on the element that your function
+returns, or throw an "Element not found" error if your function returns null. Selenium passed three arguments to the location strategy function:
+
+  * _locator_: the string the user passed in
+  * _inWindow_: the currently selected window
+  * _inDocument_: the currently selected document
+
+The function must return null if the element can't be found.
+
+Arguments:
+
+  * _strategyName_: the name of the strategy to define; this should use only letters [a-zA-Z] with no spaces or other punctuation.
+  * _functionDefinition_: a string defining the body of a function in JavaScript. For example: return inDocument.getElementById(locator);
+
+Accordingly, we define the custom locate strategy as follows,
+
+{{{
+addLocationStrategy("jquery", '''
+  var found = $(inDocument).find(locator);
+  if(found.length == 1 ){
+    return found[0];
+  }else if(found.length > 1){
+    return found.get();
+  }else{
+    return null;
+  }
+''')
+}}}
+
+The code is pretty straightforward. When we find one element, return its DOM reference (Note: Selenium does not accept returning an array with only one element) and if we find multiple elements, we use jQuery get() method to return an array of DOM references. Otherwise, return null.
+
+The actual code is a bit more complicated because we need to consider our custom attribute locator. We use the same format of attribute locator as the XPath one, i.e.,
+ 
+{{{
+locator@attribute
+}}}
+
+Apart from that, we need to create a set of custom Selenium methods and add the appropriate Selenium RC Java methods. For example, we created the following Selenium method 
+
+{{{
+Selenium.prototype.getAllText = function(locator){
+  var $e = $(this.browserbot.findElement(locator));
+  var out = [];
+  $e.each(function(){
+     out.push($(this).text());
+  });
+
+  return JSON.stringify(out);
+};
+}}} 
+
+Then, created the corresponding Java method by extending Selenium
+
+{{{
+class CustomSelenium extends DefaultSelenium {
+
+  def String getAllText(String locator){
+     String[] arr = [locator];
+     String st = commandProcessor.doCommand("getAllText", arr);
+     return st;
+  }
+}
+}}}
 
 jQuery Selector provides the following additional Selenium methods, which are utilized in DslContext to form a set of new DSL methods.
 
@@ -532,19 +609,118 @@ jQuery also supports the following attribute selectors.
 
    * {{{attribute*=value}}}: have the specified attribute and it contains a certain value.
 
-Apart from the above, jQuery selector also provides a jQuery selector version of many existing DSL methods, for instance,
+Apart from the above, Tellurium provides a set of locator agnostic methods, i.e., the method will automatically decide to use XPath or jQuery dependent on the _exploreJQuerySelector_ flag, which can be turn on and off by the following two methods:
 
 {{{
-int getTableHeaderColumnNumBySelector(String uid)
+public void useJQuerySelector()
+
+public void disableJQuerySelector()
 }}}
 
-But you should use locator agnostic API, such as
+In the meanwhile, Tellurium also provides the corresponding XPath specific and jQuery selector specific methods for your convenience. However, we recommend you to use the locator agnostic methods until you have a good reason not to. 
 
-{{{
-int getTableHeaderColumnNum(String uid) 
-}}}
+The new methods are listed here:
 
-Under the hood, Tellurium core will call the appropriate API based on what locator you are currently using. For more details, please see Tellurium jQuery Selector Guide.
+  * Get the Generated locator from the UI module
+
+  Locator agnostic:
+    * String getLocator(String uid)
+
+  JQuery selector specific:
+    * String getSelector(String uid)
+
+  XPath specific: 
+    * String getXPath(String uid) 
+
+  * Get the Number of Elements matching the Locator
+
+  Locator agnostic:
+    * Number getLocatorCount(String locator)
+
+  JQuery selector specific:
+    * Number getJQuerySelectorCount(String jQuerySelector)
+
+  XPath specific: 
+    * Number getXpathCount(String xpath) 
+ 
+  * Table methods
+
+  Locator agnostic:
+    * int getTableHeaderColumnNum(String uid) 
+    * int getTableFootColumnNum(String uid)
+    * int getTableMaxRowNum(String uid)
+    * int getTableMaxColumnNum(String uid)
+    * int getTableMaxRowNumForTbody(String uid, int ntbody)
+    * int getTableMaxColumnNumForTbody(String uid, int ntbody)
+    * int getTableMaxTbodyNum(String uid)
+
+  JQuery selector specific:
+    * int getTableHeaderColumnNumBySelector(String uid)
+    * int getTableFootColumnNumBySelector(String uid)
+    * int getTableMaxRowNumBySelector(String uid)
+    * int getTableMaxColumnNumBySelector(String uid)
+    * int getTableMaxRowNumForTbodyBySelector(String uid, int ntbody)
+    * int getTableMaxColumnNumForTbodyBySelector(String uid, int ntbody)
+    * int getTableMaxTbodyNumBySelector(String uid)
+
+
+  XPath specific:  
+    * int getTableHeaderColumnNumByXPath(String uid) 
+    * int getTableFootColumnNumByXPath(String uid)
+    * int getTableMaxRowNumByXPath(String uid)
+    * int getTableMaxColumnNumByXPath(String uid)
+    * int getTableMaxRowNumForTbodyByXPath(String uid, int ntbody)
+    * int getTableMaxColumnNumForTbodyByXPath(String uid, int ntbody)
+    * int getTableMaxTbodyNumByXPath(String uid) 
+
+  * Check if an Element is Disabled
+
+  Locator agnostic:
+    * boolean isDisabled(String uid)
+
+  JQuery selector specific:
+    * boolean isDisabledBySelector(String uid)
+
+  XPath specific: 
+    * boolean isDisabledByXPath(String uid)
+
+  * Get the Attribute
+
+  Locator agnostic:
+    * def getAttribute(String uid, String attribute)
+
+  * Check the CSS Class
+
+  Locator agnostic
+    * def hasCssClass(String uid, String cssClass)
+
+  * Get CSS Properties
+
+  JQuery selector specific:
+    * String[] getCSS(String uid, String cssName)
+
+  * Get All Data from a Table
+
+  JQuery selector specific:
+    * String[] getAllTableCellText(String uid)
+    * String[] getAllTableCellTextForTbody(String uid, int index)
+
+  * Get List Size
+
+  Locator agnostic:
+    * int getListSize(String uid)
+
+  JQuery selector specific:
+    * getListSizeBySelector(String uid)
+
+  XPath specific: 
+    * getListSizeByXPath(String uid)
+ 
+The are something you should be aware of for jQuery Selector:
+  * If you have a duplicate "id" attribute on the page, jQuery selector always returns the first DOM reference, ignoring other DOM references with the same "id" attribute.
+  * Some attribute may not working in jQuery, for example, the "action" attribute in a form. Tellurium has a black list to automatically filter out the attributes that are not honored by jQuery selector.
+  * Seems the "src" attribute in Image has to be full URL such as http://www.google.com. One workaround is to put '`*`' before the URL.
+
 
 == jQuery Selector Cache Option ==
 
@@ -572,17 +748,103 @@ One example UI module is defined as follows,
 
 Where the _cacheable_ can overwrite the default value in the UI object and _noCacheForChildren _ in the above example will force Tellurium to not cache its children.
 
-Tellurium Core provides a set of methods for jQuery Selector cache control, for example,
+When you choose to use jQuery Cache mechanism, Tellurium core will pass the jQuery selector and a meta command to Tellurium Engine, which is embedded inside Selenium core at the current stage. The format is as follows taking the Tellurium issue searching UI as an example,
+
+{{{
+jquerycache={
+  "locator":"form[method=get]:has(#can, span:contains(for), input[type=text][name=q], input[value=Search][type=submit]) #can",
+  "optimized":"#can",
+  "uid":"issueSearch.issueType",
+  "cacheable":true,
+  "unique":true
+}
+}}}
+ 
+where _locator_ is the regular jQuery selector and _optimized_ is the optimized jQuery selector by the jQuery selector optimizer in Tellurium core. The _locator_ is used for child UI element to derive a partial jQuery selector from its parent. The _optimized_ will be used for actual DOM searching. 
+
+The rest three parameters are meta commands. _uid_ is the UID for the corresponding jQuery selector and _cacheable_ tells the Engine whether to cache the selector or not. The reason is that some UI element on the web is dynamic, for instance, the UI element inside a data grid. As a result, it may not be useful to cache the jQuery selector.
+
+The last one, _unique_, tells the Engine whether the jQuery selector expects multiple elements or not. This is very useful to handle the case that jQuery selector is expected to return one element, but actually returns multiple ones. In such a case, a Selenium Error will be thrown.
+
+
+On the Engine side the cache is defined as
+
+{{{
+    //global flag to decide whether to cache jQuery selectors
+    this.cacheSelector = false;
+
+    //cache for jQuery selectors
+    this.sCache = new Hashtable();
+    
+    this.maxCacheSize = 50;
+
+    this.cachePolicy = discardOldCachePolicy;
+}}}
+
+The cache system includes a global flag to decide whether to use the cache capability, a hash table to store the cached data, a cache size limit, and a cache eviction policy once the cache is filled up. 
+
+The cached data structure is defined as 
+
+{{{
+//Cached Data, use uid as the key to reference it
+function CacheData(){
+    //jQuery selector associated with the DOM reference, which is a whole selector
+    //without optimization so that it is easier to find the reminding selector for its children
+    this.selector = null;
+    //optimized selector for actual DOM search
+    this.optimized = null;
+    //jQuery object for DOM reference
+    this.reference = null;
+    //number of reuse
+    this.count = 0;
+    //last use time
+    this.timestamp = Number(new Date());
+};
+}}}
+
+Tellurium Engine provides the following cache eviction policies:
+
+  * DiscardNewPolicy: discard new jQuery selector.
+  * DiscardOldPolicy: discard the oldest jQuery selector measured by the last update time.
+  * DiscardLeastUsedPolicy: discard the least used jQuery selector.
+  * DiscardInvalidPolicy: discard the invalid jQuery selector first.
+
+It is important to know when the cached data become invalid. There are three mechanisms we can utilize here:
+  # Listen for page refresh event and invalidate the cache data accordingly
+  # Intercept Ajax response to decide when the web is update and if the cache needs to be updated.
+  # Validate the cached jQuery selector before using it.
+
+Right now, Tellurium Engine uses the 3rd mechanism to check if the cached data is valid or not. The first two mechanisms are still under development.
+
+Whenever Tellurium Core passes a locator to the Engine, the Engine will first look at the meta command _cacheable_. If this flag is true, it will first try to look up the DOM reference from the cache. If no cached DOM reference is available, do a fresh jQuery search and cache the DOM reference, otherwise, validate the cached DOM reference and use it directly. If the _cacheable_ flag is false, the Engine will look for the UI element's ancestor by its UID and do a jQuery search starting from its ancestor if possible. 
+
+Tellurium Core provides the following methods for jQuery Selector cache control,
 
   * _public void enableSelectorCache()_: Enable jQuery selector cache
 
   * _public boolean disableSelectorCache()_: Disable jQuery selector cache
 
+  * _public boolean cleanSelectorCache()_: Cleanup the whole jQuery selector cache
+
+  * _public boolean getSelectorCacheState()_: Test if the cache is enabled or not in Engine
+
   * _public void setCacheMaxSize(int size)_: Set the cache maximum size
 
+  * _public int getCacheSize()_: Get the cache current size
+
+  * _public int getCacheMaxSize()_: Get the cache maximum size 
+
+  * _public Map<String, Long> getCacheUsage()_: Get the cache usage
+
+  * _public void useDiscardNewCachePolicy()_: Use DiscardNewCachePolicy 
+
   * _public void useDiscardOldCachePolicy()_: Use DiscardOldCachePolicy
- 
-For a complete list of cache control APIs, please check  [http://code.google.com/p/aost/wiki/jQuerySelectorCache The Cache Mechanism of jQuery Selector]
+
+  * _public void useDiscardLeastUsedCachePolicy()_: Use DiscardLeastUsedCachePolicy
+
+  * _public void useDiscardInvalidCachePolicy()_: Use DiscardInvalidCachePolicy
+
+  * _public String getCurrentCachePolicy()_: Get the current cache policy
 
 == "Include" Frequently Used Sets of elements in UI Modules ==
 
