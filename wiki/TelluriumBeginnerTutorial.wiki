@@ -5,13 +5,15 @@
 = Tellurium beginner tutorial=
 
 ==Introduction==
+
 First download the [TelluriumVideo1#Resources screen cast video]  and follow the video with this page.
 
-*Tellurium Automated Testing Framework (Tellurium)* is a *UI module-based* automated testing framework for web applications built on top of Selenium. Currently we are working on  our own engine. With Tellurium we are not only trying to solve some of the problems with Selenium but we've added new features which would ease the pain in writing functional tests.
+*Tellurium Automated Testing Framework (Tellurium)* is a *UI module-based* automated testing framework for web applications built on top of Selenium. Currently we are working on our own engine. With Tellurium we are not only trying to solve some of the problems with Selenium but we've added new features which would ease the pain in writing functional tests.
 
 You can download Selenium [http://seleniumhq.org/download/ here]
 
 Lets begin with Selenium. *Selenium* is web application testing framework. It consists of 5 components. 
+
   # Selenium Core
   # Selenium Remote Control(RC) Server
   # Selenium Driver
@@ -65,6 +67,7 @@ Looking at the code, we can observe some problems
 Tellurium addresses all of these problems. UI model is the core of Tellurium. Its a collection of all the DOM elements. Instead of using the static xpath, we use the attributes of the DOM element and its parent to dynamically generate xpath. UI is completely separate from the test making the test and the UI refactor friendly and reusable. By looking at the UI model, you can fairly say what part of the web application you are testing. Same test in Tellurium is split into two parts UI and the actual TEST as follows.
 
 === UI === 
+
 {{{
 import org.tellurium.dsl.DslContext
 
