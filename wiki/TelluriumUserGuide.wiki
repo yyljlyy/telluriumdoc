@@ -1077,7 +1077,7 @@ test{
  
 TelluriumDataDrivenModule is used to define modules, where users can define UI Modules, FieldSets, and tests as shown in the following sequence diagram. Users should extend this class to define their own test modules. 
 
-http://tellurium-users.googlegroups.com/web/tellurium.ddt.sequence.module.jpg?gda=JfGNJFMAAACjbvY1r0rMz6MRbvC-tSqoysMSW8LOE1CninSxbdL8I2vnDwbH8gszdz4ehPdDgG9Ob8FqU5PL6F5asAt-s2HZMrYifh3RmGHD4v9PaZfDexVi73jmlo822J6Z5KZsXFo&gsc=httiOwsAAAAISLBF63vg48UkWer0gDjz
+http://tellurium-users.googlegroups.com/web/TelluriumDDTSequenceModuleSmall.jpg?gsc=ZqOGHAsAAACnetGKhEg2llVnNCbfn1yB
 
 TelluriumDataDrivenModule provides one method "defineModule" for users to implement. Since it extends the DslContext class, users can define UI modules just like in regular Tellurium UI Module. For example:
 
