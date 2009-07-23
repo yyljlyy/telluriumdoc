@@ -81,11 +81,9 @@ Re-usability is achieved by the UI module when working within one application an
 
 == Tellurium Architecture ==
 
-The Tellurium framework architecture is shown as in Figure 1.
+The Tellurium framework architecture is shown as follows.
 
 http://tellurium-users.googlegroups.com/web/TelluriumUMLSystemDiagram.png?gda=0H5Erk8AAAD5mhXrH3CK0rVx4StVj0LYqZdbCnRI6ajcTiPCMsvamYLLytm0aso8Q_xG6LhygcwA_EMlVsbw_MCr_P40NSWJnHMhSp_qzSgvndaTPyHVdA&gsc=cq8RLwsAAADwIKTw30t0VbWQq6vz0Jcq
-
-Figure 1. Tellurium Architecture.
 
 The DSL parser consists of the DSL Object Parser, Object Builders, and the Object Registry.
 
@@ -765,7 +763,6 @@ where _locator_ is the regular jQuery selector and _optimized_ is the optimized 
 The rest three parameters are meta commands. _uid_ is the UID for the corresponding jQuery selector and _cacheable_ tells the Engine whether to cache the selector or not. The reason is that some UI element on the web is dynamic, for instance, the UI element inside a data grid. As a result, it may not be useful to cache the jQuery selector.
 
 The last one, _unique_, tells the Engine whether the jQuery selector expects multiple elements or not. This is very useful to handle the case that jQuery selector is expected to return one element, but actually returns multiple ones. In such a case, a Selenium Error will be thrown.
-
 
 On the Engine side the cache is defined as
 
