@@ -18,7 +18,7 @@ Lets begin with Selenium. *Selenium* is web application testing framework. It co
   # Selenium Grid
   # Selenium IDE firefox plugin
 
-http://tellurium-users.googlegroups.com/web/selenium.png?gsc=QJl9twsAAADeoAOjG7FEp37CyALn8sk1
+http://tellurium-users.googlegroups.com/web/selenium.png?gda=qBGJSz4AAAD5mhXrH3CK0rVx4StVj0LYB9sH1op7Di-QcJ99oyD3KaFBMvRac13V4B_AtC4smnnjsKXVs-X7bdXZc5buSfmx
 
 Selenium RC server automatically launches and kills browsers, and acts as a HTTP proxy for web requests from them.
 
