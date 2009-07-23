@@ -892,7 +892,6 @@ public void setCustomConfig(boolean runInternally, int port, String browser,
 public void setCustomConfig(boolean runInternally, int port, String browser,
                   boolean useMultiWindows, String profileLocation, String serverHost)
 }}}
-}}}
 
 For example, you can specify your custom settings as follows,
 
@@ -1022,7 +1021,6 @@ datadriven{
         reader = "PipeFileReader"
     }
 }
-
 }}}
 
 Sometimes, you may like to specify test data in the test scripts directly, _useData_ is designed for this purpose and it loads input from a String. The String is usually defined in Groovy style using triple quota, for example:
@@ -1089,12 +1087,12 @@ TelluriumDataDrivenModule provides one method "defineModule" for users to implem
 
 {{{
 ui.Table(uid: "labels_table", clocator: [:], group: "true"){
-   TextBox(uid: "row: 1, column: 1", clocator: [tag: "div", text: "Example project labels:"])
+   TextBox(uid: "row: 1, column: 1", clocator: [tag: "div", 
+           text: "Example project labels:"])
    Table(uid: "row: 2, column: 1", clocator: [header: "/div[@id=\"popular\"]"]){
         UrlLink(uid: "all", locator: "/a")
    }
 }
-
 }}}
 
 FieldSet is used to define the format of one line of input data and FieldSet consists of fields, i.e., columns, in the input data. There is a special field "test", which users can specify what test this line of data apply to. For example,
@@ -1113,7 +1111,6 @@ The above FieldSet defines the input data format for testing google code hosting
 For a regular field, it includes the following attributes:
 
 {{{
-
 class Field {
 	//Field name
 	private String name
@@ -1137,7 +1134,6 @@ class Field {
 	//if specified, we must use it for String validation
 	private String pattern
    } 
-
 }}}
 
 Tellurium can automatically handle Java primitive types. Another flexibility Tellurium provides is that users can define their own custom type handlers to deal with more complicated data types by using "typeHandler", for example, 
@@ -1147,8 +1143,9 @@ Tellurium can automatically handle Java primitive types. Another flexibility Tel
 typeHandler "phoneNumber", "org.tellurium.test.PhoneNumberTypeHandler"
 
 //define file data format
-fs.FieldSet(name: "fs4googlesearch", description: "example field set for google search") {
-    Field(name: "regularSearch", type: "boolean", description: "whether we should use regular search or use I'm feeling lucky")
+fs.FieldSet(name: "fs4googlesearch", description: "example field set for google search"){
+    Field(name: "regularSearch", type: "boolean", 
+          description: "whether we should use regular search or use I'm feeling lucky")
     Field(name: "phoneNumber", type: "phoneNumber", description: "Phone number")
     Field(name: "input", description: "input variable")
 }
