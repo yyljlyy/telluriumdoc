@@ -1,10 +1,10 @@
-#summary Tellurium: A New Approach for Web Testing.
+#summary Tellurium: Web应用自动化测试的新方法
 #labels Phase-Support
 <wiki:toc max_depth="5" />
 
-= Introduction =
+= 简介=
 
-== Challenges and Problems ==
+== 挑战和问题 ==
 
 Automated web testing has always been one of the hottest and most important topics in the software testing arena when it comes to the rising popularity of Rich Internet applications (RIA) and Ajax-based web applications. With the advent of new web techniques such as RIA and Ajax, automated web testing tools must keep up with these changes in technology and be able to address the following challenges:
 
