@@ -6,22 +6,19 @@
 
 == 挑战和问题 ==
 
-Automated web testing has always been one of the hottest and most important topics in the software testing arena when it comes to the rising popularity of Rich Internet applications (RIA) and Ajax-based web applications. With the advent of new web techniques such as RIA and Ajax, automated web testing tools must keep up with these changes in technology and be able to address the following challenges:
-
 随着富Internet应用（RIA）和基于Ajax的web应用的兴起，对它们的自动化测试一直是软件测试领域中最热门也最重要的话题。而随着像RIA和Ajax这样新技术的出现，Web自动化测试工具必须能跟上这些技术的变化，并能够解决下面这些挑战：
-
-  * *JavaScript Events*: JavaScript is everywhere on the web today. Many web applications are JavaScript heavy. To test JavaScript, the automated testing framework should be able to trigger JavaScript events in a very convenient way.
 
   * *JavaScript事件*：JavaScript是现在Web应用的统治者。而许多Web应用更是JavaScript的重度采用者。为了测试JavaScript，自动化测试框架应该能够以非常方便的方式来触发JavaScript事件。
 
-  * *Ajax for Dynamic Web Content*: Web applications have many benefits over desktop applications; for example they have no installation and application updates are instantaneous and easier to support. Ajax is a convenient way to update a part of the web page without refreshing the whole page. AJAX makes web applications richer and more user-friendly. The web context for an Ajax application is usually dynamic. For example, in a data grid, the data and number of rows keep changing at runtime. 
+  * *服务于动态Web内容的Ajax*: Web应用具有很多桌面应用不具备的优势；比如它们没有安装过程，更新升级是瞬时的而且更容易支持。Ajax是一种非常便利的方式来更新web页面的一部分，而不用刷新整个页面。AJAX为web应用带来更加丰富的功能和用户友好的界面。Ajax应用的web内容通常是动态的，比如，在数据表格中，行数和行内的数据在运行时动态发生变化。
 
-  * *服务于动态Web内容的Ajax*: Web应用具有很多桌面应用不具备的优势；比如它们没有安装过程，更新升级是瞬时的而且更容易支持。Ajax是一种非常便利的方式来更新web页面的一部分，而不用刷新整个页面。
+  * *智能/快速响应变化*：一个好的自动化web测试工具应该能在某种程度上解决这个web内容动态变化的问题，才不会让用户不停地更新维护测试代码。
 
-  * *Robust/Responsive to Changes*: A good automated web testing tool should be able to address the changes in the web context to some degree so that users do not need to keep updating the test code.
-  * *Easy to Maintain*: In an agile world, software development is based on iterations, and new features are added on in each sprint. The functional tests or user acceptance tests must be refactored and updated for the new features. The testing framework should provide the flexibility for users to maintain the test code very easily.
-  * *Re-usability*: Many web applications use the same UI module for different parts of the application. The adoption of JavaScript frameworks such as Dojo and ExtJS increases the chance of using the same UI module for different web applications. A good testing framework should also be able to provide the re-usability of test modules.
-  * *Expressiveness*: The testing framework should be able to provide users without much coding experience the ability to easily write test code or scripts in a familiar way, like by using a domain specific language (DSL).
+  * *易于维护*：在敏捷开发中，软件开发是基于迭代进行的，新的功能会在每个sprint中添加进来。功能测试或者用户验收测试必须针对新的特性进行及时地重构和更新。测试框架应该能为用户提供一定的灵活性来便于维护测试代码。
+
+  * *重用性*：许多web应用会对应用的不同部分使用完全一样的UI模块。而采用Dojo和ExtJS这样的JavaScript框架则加剧了为不同的web应用使用相同的UI模块的可能。一个好的测试框架应该能提供对这些模块测试的可重用性。
+
+  * *丰富的表现力*：测试框架应该为那些不具备太多编码经验的用户提供以熟悉的方式轻松编写代码或脚本的能力，比如使用某种领域特定语言（DSL）。
 
 == Existing Open Source Automated Web Testing Frameworks ==
 
