@@ -61,19 +61,25 @@ Twill是一个简单的脚本语言，允许用户从命令行接口浏览Web。
 
 Since the existing automated testing frameworks could not address our challenges and problems very well, we really needed a new automated testing framework to address them with the following motivations:
 
-  * Robust/responsive to changes; allow changes to be localized
-  * Address dynamic web contexts such as JavaScript events and Ajax 
-  * Easy to refactor and maintain
-  * Modular; test modules are reusable 
-  * Expressive and easy to use
+既然已有的众多自动化测试框架无法有效地解决我们的挑战和问题，我们就有动机需要一种全新的自动化测试框架来解决它们：
 
-Our proposal is the Tellurium Automated Testing Framework, or Tellurium for short. 
+  * 智能/响应变化；可以定位变化
+  * 解决动态web上下文变化，比如JavaScript事件和Ajax 
+  * 易于重构和维护
+  * 模块化；测试模块可重用
+  * 表达力强，易于使用
 
-=== Why Tellurium is a New Approach for Web Testing ===
+我们的解决方案就是Tellurium自动化测试框架，简称Tellurium。
+
+=== 为什么Tellurium是Web测试的新方法 ===
  
-The Tellurium Automated Testing Framework (Tellurium) is an open source automated testing framework for web applications that addresses the challenges and problems in web testing. 
+The Tellurium Automated Testing Framework (Tellurium) is an open source automated testing framework for web applications that addresses the challenges and problems in web testing.
+
+Tellurium自动化测试框架是一款针对web应用并解决了web测试中挑战和难题的开源自动化测试框架。
 
 Most existing web testing tools/frameworks focus on individual UI elements such as links and buttons. Tellurium takes a new approach for automated web testing using the concept of the "UI module."  The UI module is a collection of UI elements grouped together. Usually, the UI module represents a composite UI object in the format of nested basic UI elements. For example, the Google search UI module can be expressed as follows:
+
+大多数已有的web测试工具/框架都侧重于单个的UI元素，比如链接和按钮。Tellurium引入了“UI模块”的概念来实现一种全新的Web自动化测试方法。UI模块是一组UI元素的集合。通常，UI模块代表了以基本UI元素相嵌套的形式存在的一个符合UI对象。例如，Google搜索UI模块可以表示成下面这样：
 
 {{{
 ui.Container(uid: "GoogleSearchModule", clocator: [tag: "td"], group: "true"){
