@@ -35,7 +35,11 @@ Selenium web测试框架是现在最流行的开源自动化测试框架。它�
 
 Do you know what UI module the above code is testing? What does the locator “q" mean here? And what if the XPath "//input[@value='Google Search' and @type='button']" becomes invalid due to changes on the web? Most likely, you have to go through the test code to locate the lines you need to update. What if you have tens or hundreds of locators in your test code? Creating the test code using Selenium IDE is easy, but it is difficult to generalize and refactor. Refactoring is a much more tedious and painful procedure than regenerating new test code from scratch because of the use of hard-coded locators and the coupling of locators with test code. Maintaining the code is a hassle because the test code is not structured. Since Selenium only focuses on individual UI elements, it is difficult to adjust to changes on the web and to address a dynamic web context. 
 
+你知道上面的代码是在测试什么UI模块吗？这里的locator“q”是什么意思？如果XPath“//input[@value='Google Search' and @type='button']”因为web内容的变化失效了怎么办？很有可能的是，你不得不浏览整个测试代码才能定位你需要更新的代码部分。如果你的代码里面有几十甚至上百个locator怎么办？使用Selenium IDE来创建测试代码是比较容易的，但很难泛化并重构。因为硬编码locator的使用，以及locator和测试代码之间的耦合，是的重构相比较从头开始创建新的测试代码来说，是更加单调乏味和痛苦的过程。维护代码是件麻烦事，因为测试代码不是结构化的。因为Selenium只是侧重在单个的UI元素上，所以就很难调整代码来适应动态web上下文的变化。
+
 Canoo WebTest is another popular open source tool for automated testing of web applications. However, it also focuses on individual UI elements and thus it suffers shortcomings similar to those of Selenium, such as coupling the test code with the UI. Here is some sample test code:
+
+Canoo WebTest是另外一个流行的开源Web自动化测试工具。同样，它也是基于单个的UI元素，因此遭遇到和Selenium类似的那些缺陷，比如测试代码和UI耦合很紧。下面是测试代码的示例：
 
 {{{
     webtest("check that WebTest is Google's top 'WebTest' result"){
@@ -49,9 +53,11 @@ Canoo WebTest is another popular open source tool for automated testing of web a
 
 Twill is a simple scripting language that allows users to browse the Web from a command-line interface. It uses links, forms, cookies, and most standard Web features. It also deals with individual UI elements but does not support javascript, and HTML needs to be parsed interactively. Twill only supports Python, which makes it fairly inconvenient for practical web applications.
 
-== A New Approach for Web Testing ==
+Twill是一个简单的脚本语言，允许用户从命令行接口浏览Web。它使用链接、表单、cookies和大多数标准的Web特性。它同样能够处理单个的UI元素，但不支持javascript，而且HTML需要以交互式进行解析。Twill只支持Python，这对一些实际的web应用来说相当不方便。
 
-=== Motivations ===
+== Web测试的新方法 ==
+
+=== 动机 ===
 
 Since the existing automated testing frameworks could not address our challenges and problems very well, we really needed a new automated testing framework to address them with the following motivations:
 
