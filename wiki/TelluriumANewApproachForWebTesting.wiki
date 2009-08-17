@@ -20,11 +20,11 @@
 
   * *丰富的表现力*：测试框架应该为那些不具备太多编码经验的用户提供以熟悉的方式轻松编写代码或脚本的能力，比如使用某种领域特定语言（DSL）。
 
-== Existing Open Source Automated Web Testing Frameworks ==
+== 已有的开源Web自动化测试框架 ==
 
-The Selenium web testing framework is the most popular open source automated web testing framework. It's a ground-breaking framework that offers many unique features and advantages such as browser based testing, Selenium Grid, and "record and replay" of user interactions with the Selenium IDE. As a pioneer framework, it inevitably has its shortcomings. One major drawback is that it only focuses on individual UI elements such as links and buttons. As a result, it is difficult to address dynamic web content in Selenium. "Record and replay" does make it much easier for users, especially non-developers, to create test cases. However, it has the drawback of being difficult to refactor and maintain. Other downsides include the coupling of UI elements and test code, being overly verbose, and being fragile and unresponsive to dynamic web changes. 
+Selenium web测试框架是现在最流行的开源自动化测试框架。它是一款具有开拓意义的测试框架，提供了许多独具风格的特性和优势，比如基于浏览器的测试、Selenium Grid以及通过Selenium IDE进行“录制和回放”的用户体验。它的一个主要缺点在于它侧重于某个单独的UI元素的交互，比如链接和按钮。这样的话，Selenium就很难解决动态web内容的问题。“录制和回放”对于用户来说的确很简单，尤其是非开发者创建测试案例时。然而，它同样带来难于重构和维护的缺陷。其他的负面包括UI元素和测试代码耦合太紧，、句法冗长、代码脆弱而且对web内容动态变化没有响应。
 
-Take the following Selenium test code as an example:
+以下面的Selenium测试代码为例：
 
 {{{
    setUp("http://www.google.com/", "*chrome");
