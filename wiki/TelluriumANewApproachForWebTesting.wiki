@@ -91,7 +91,11 @@ ui.Container(uid: "GoogleSearchModule", clocator: [tag: "td"], group: "true"){
  
 Tellurium is built on the foundation of the UI module.  The UI module makes it possible to build locators for UI elements at runtime.  First, this makes Tellurium robust and responsive to changes from internal UI elements.  Second, the UI module makes Tellurium expressive.  A UI element can be referred to simply by appending the names (uid) along the path to the specific element. This also enables Tellurium's "Group Locating" feature, making composite objects reusable, and addressing dynamic web pages.
 
+Tellurium是在UI模块的基础上构建的。UI模块的存在使得在运行时为UI元素构建locator成为可能。首先，这会让Tellurium对来自内部UI元素的变化更显智能和及时响应。第二，UI模块使得Tellurium具有丰富的表达能力。只需要简单地为特定元素的路径附加名称（uid）就可以引用到UI元素。这样也使得Tellurium的“组定位”特性，重用复合对象以及解决动态web页面变化成为可能。
+
 Tellurium is implemented in Groovy and Java.  The test cases can be written in Java, Groovy, or pure "Domain Specific Language (DSL)" scripts.  Tellurium evolved out of Selenium, but the UI testing approach is completely different. For example, Tellurium is not a "record and replay" style framework, and it enforces the separation of UI modules from test code, making refactoring easy. For example, once you defined the Google Search UI module shown above, you can write your test code as follows:
+
+Tellurium是用Groovy和Java实现的。测试案例可以使用Java、Groovy或者纯的“领域特定语言”脚本来编写。Tellurium从Selenium进化而来，但UI测试方法是完全不同的。比如说，Tellurium并不是一个“录制回放”风格的框架，它要求UI模块从测试代码中分离开来，使得重构变得容易。例如，一旦你定义了上面的Google搜索的UI模块，你就可以像下面这样编写自己的测试代码：
 
 {{{
 type "GoogleSearchModule.Input", "Tellurium test"
@@ -99,26 +103,30 @@ click "GoogleSearchModule.Search"
 }}} 
 
 Tellurium does "Object to Locator Mapping (OLM)" automatically at run time so that UI objects can be defined simply by their attributes using "Composite Locators." Tellurium uses the "Group Locating Concept (GLC)" to exploit information inside a collection of UI components so that locators can find their elements.  It also defines a set of DSLs for web testing.  Furthermore, Tellurium uses UI templates to define sets of dynamic UI elements at runtime.  As a result, Tellurium is robust, expressive, flexible, reusable, and easy to maintain. 
+
+Tellurium在运行时自动完成“对象到Locator的映射（OLM）”，这样UI对象就可以简单地通过“复合Locator”由自己的属性来进行定义。Tellurium使用“组定位概念（GLC）”来发现UI组件集合中的信息，locator从而发现它们的元素。Tellurium还定义了一套DSL来用于web测试。更进一步，Tellurium使用UI模板在运行时定义成套的动态UI元素。因此，Tellurium是非常智能的，具有丰富的表达能力，灵活可重用并易于维护。
     
 The main features of Tellurium include:
 
-  * Abstract UI objects to encapsulate web UI elements  
-  * UI module for structured test code and re-usability  
-  * DSL for UI definition, actions, and testing
-  * Composite Locator to use a set of attributes to describe a UI element
-  * Group locating to exploit information inside a collection of UI components
-  * Dynamically generate runtime locators to localize changes
-  * UI templates for dynamic web content
-  * XPath support
-  * jQuery selector support to improve test speed in IE
-  * Locator caching to improve speed
-  * Javascript event support
-  * Use Tellurium Firefox plugin, Trump, to automatically generate UI modules
-  * Dojo and ExtJS widget extensions    
-  * Data driven test support 
-  * Selenium Grid support
-  * JUnit and TestNG support
-  * Ant and Maven support
+Tellurium的主要特性包括：
+
+  * 抽象UI对象封装webUI元素
+  * 用于结构和测试代码的UI模块以及可重用性
+  * 可用于UI定义、动作和测试的DSL
+  * 使用一套属性来描述UI元素的复合Locator
+  * 使用组定位来发现UI组件集合中的信息
+  * 动态生成运行时locator来定位变化
+  * 针对动态web内容的UI模板
+  * 支持XPath
+  * 支持jQuery selector来提高在IE中的测试速度
+  * 缓存Locator来提升速度
+  * 支持Javascript事件
+  * 使用Tellurium的Firefox插件Trump来自动生成UI模块
+  * 支持Dojo和ExtJS widget扩展
+  * 支持数据驱动测试
+  * 支持Selenium Grid
+  * 支持JUnit和TestNG
+  * 支持Ant和Maven
 
 === How Challenges and Problems are addressed in Tellurium ? ===
  
