@@ -128,17 +128,27 @@ Tellurium的主要特性包括：
   * 支持JUnit和TestNG
   * 支持Ant和Maven
 
-=== How Challenges and Problems are addressed in Tellurium ? ===
+=== Tellurium是如何解决挑战和问题的？===
  
 First of all, Tellurium does not use "record and replay." Instead, it uses the Tellurium Firefox plugin Trump to generate the UI module (not test code) for you. Then you need to create your test code based on the UI module. In this way, the UI and the test code are decoupled. The structured test code in Tellurium makes it much easier to refactor and maintain the code.
 
+首先，Tellurium没有使用“录制和回放”。相反，它使用Tellurium的Firefox插件Trump来为你生成UI模块（不是测试代码）。然后你就可以根据这些UI模块来创建自己的测试代码。就这样，UI和测试代码就解耦了。Tellurium的结构化测试代码使得重构和维护代码变得容易得多。
+
 The composite locator uses UI element attributes to define the UI, and the actual locator (e.g. xpath or jQuery selector) will be generated at runtime. Any updates to the composite locator will lead to different runtime locators, and the changes inside the UI module are localized. The Group locating is used to remove the dependency of the UI objects from external UI elements (i.e. external UI changes will not affect the current UI module for most cases) so that your test code is robust and responsive to changes up to a certain level.
+
+复合locator使用UI元素属性来定义UI，而真正的locator（比如xpath或者jQuery selector）会在运行时才生成出来。任何针对复合locator的更新都会导致不同的运行时locator，这样就能定位UI模块内部的变化。组定位则用于去除UI对象对外部Ui元素的依赖（比如大多数case下外部UI变化不会影响到当前UI模块），这样你的测试代码针对变化就能达到一定程度的智能和响应能力。
 
 Tellurium uses the “respond” attribute in a UI object for you to specify JavaScript events, and the rest will be handled automatically by the framework itself. UI templates are a powerful feature in Tellurium used to represent many identical UI elements or a dynamic size of different UI elements at runtime, which are extremely useful in testing dynamic web contexts such as a data grid. The “Option” UI object is designed to automatically address dynamic web contexts with multiple possible UI patterns.
 
+Tellurium在UI对象中使用“respond”属性来指定JavaScript事件，余下的事情就交给框架自己来自动处理了。UI模板是Tellurium的一个强大特性，能在运行时代表许多相同的UI元素或者动态大小的不同UI元素，这在测试动态web上下文比如数据表格时相当有用。“Option”UI对象设计用来通过多个可能的UI模式来自动解决动态web上下文。
+
 Re-usability is achieved by the UI module when working within one application and by Tellurium Widgets when working across different web applications. With the Domain Specific Language (DSL) in Tellurium you can define UI modules and write test code in a very expressive way. Tellurium also provides you the flexibility to write test code in Java, Groovy, or pure DSL scripts.
 
+在一个ewb应用中使用UI模块，在多个不同的web应用之间借助Tellurium Widget就可以实现可重用性。而通过Tellurium的领域特定语言（DSL），你可以使用非常具备表达力的方式来定义UI模块，并编写测试代码。Tellurium还为你提供了使用Java、Groovy或者纯DSL脚本来编写测试代码的灵活性。
+
 In the subsequent sections, we will give a brief introduction of Tellurium, including its architecture and main concepts. Then we will introduce the Tellurium sub-projects and how to obtain and use Tellurium. This will be followed by a detailed tutorial on how to create Tellurium test cases with code samples. Finally, we will summarize and conclude this article with our plans for the future.
+
+在接下来的部分，我们会简要地介绍Tellurium，包括它的架构和主要概念。然后会介绍Tellurium的子项目以及如何获取并使用Tellurium。接着是一个详细的关于如何创建Tellurium测试案例的指南（代码示例）。最后，我们会进行总结并公布未来的计划。
 
 = Tellurium Overview =
 
